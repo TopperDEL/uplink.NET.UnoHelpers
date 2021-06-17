@@ -11,13 +11,41 @@
     <Grid Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" MaxWidth="500">
         <Grid.RowDefinitions>
             <RowDefinition MaxHeight="400"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="340"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Image Source="/Assets/StorjLogo.png" Grid.Row="0" MaxWidth="100" MaxHeight="100"/>
-        <TextBox Grid.Row="1" x:Uid="AccessGrant" Text="{Binding AccessGrant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Access grant" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
-        <TextBox Grid.Row="2" x:Uid="BucketName" Text="{Binding BucketName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Bucket name" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
-        <Button Grid.Row="3" x:Uid="LoginButton" Command="{Binding LoginCommand}" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource StorjDefaultBrush}" Foreground="White" CornerRadius="5"/>
+        <Pivot Grid.Row="1" Title="Login via" Foreground="{StaticResource StorjBlue}" MaxWidth="400">
+            <PivotItem Header="Access Grant">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBox Grid.Row="0" x:Uid="AccessGrant" Text="{Binding AccessGrant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Access grant" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
+                    <TextBox Grid.Row="1" x:Uid="BucketName" Text="{Binding BucketName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Bucket name" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
+                </Grid>
+            </PivotItem>
+
+            <PivotItem Header="API key" MinHeight="240">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBox Grid.Row="0" x:Uid="SatelliteAddress" Text="{Binding SatelliteAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Satellite Address" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
+                    <TextBox Grid.Row="1" x:Uid="ApiKey" Text="{Binding ApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Api-Key" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
+                    <PasswordBox Grid.Row="2" x:Uid="Secret" Password="{Binding Secret, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Secret" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
+                    <PasswordBox Grid.Row="3" x:Uid="SecretVerify" Password="{Binding SecretVerify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Secret verify" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
+                    <!--<TextBlock x:Uid="SecretAndVerifyNotMatch" Text="Secret and Secretverify do not match" Foreground="Red" Visibility="{Binding SecretsDoNotMatch, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
+
+                </Grid>
+            </PivotItem>
+        </Pivot>
+        <Button Grid.Row="2" x:Uid="LoginButton" Command="{Binding LoginCommand}" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource StorjDefaultBrush}" Foreground="White" CornerRadius="5"/>
     </Grid>
 </Page>
