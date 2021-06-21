@@ -28,7 +28,7 @@
                 </Grid>
             </PivotItem>
 
-            <PivotItem Header="API key" MinHeight="240">
+            <PivotItem Header="API key">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>
