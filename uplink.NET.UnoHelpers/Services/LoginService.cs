@@ -36,23 +36,37 @@ namespace uplink.NET.UnoHelpers.Services
 
         public AppConfig GetLogin()
         {
-            return new AppConfig(_vault.Retrieve(Initializer._passwordResource, ACCESS_GRANT)?.Password,
-                                 _vault.Retrieve(Initializer._passwordResource, BUCKET_NAME)?.Password,
-                                 _vault.Retrieve(Initializer._passwordResource, SATELLITE_ADDRESS)?.Password,
-                                 _vault.Retrieve(Initializer._passwordResource, API_KEY)?.Password,
-                                 _vault.Retrieve(Initializer._passwordResource, SECRET)?.Password);
+            return new AppConfig(Retrieve(ACCESS_GRANT),
+                                 Retrieve(BUCKET_NAME),
+                                 Retrieve(SATELLITE_ADDRESS),
+                                 Retrieve(API_KEY),
+                                 Retrieve(SECRET));
         }
 
         public bool Login(AppConfig appConfig)
         {
-            //ToDo: Verify if access is valid
+            //Verify if access is valid
+            if (!string.IsNullOrEmpty(appConfig.AccessGrant) && !string.IsNullOrEmpty(appConfig.BucketName))
+            {
+                //ToDo: Verify bucket name
+                //ToDo: check Access Grant
 
-            //Save access grant to vault
-            _vault.Add(new PasswordCredential(Initializer._passwordResource, ACCESS_GRANT, appConfig.AccessGrant));
-            _vault.Add(new PasswordCredential(Initializer._passwordResource, BUCKET_NAME, appConfig.BucketName));
-            _vault.Add(new PasswordCredential(Initializer._passwordResource, SATELLITE_ADDRESS, appConfig.SatelliteAddress));
-            _vault.Add(new PasswordCredential(Initializer._passwordResource, API_KEY, appConfig.ApiKey));
-            _vault.Add(new PasswordCredential(Initializer._passwordResource, SECRET, appConfig.Secret));
+                AddIfNotEmpty(ACCESS_GRANT, appConfig.AccessGrant);
+                AddIfNotEmpty(BUCKET_NAME, appConfig.BucketName);
+            }
+            else if (!string.IsNullOrEmpty(appConfig.SatelliteAddress) && !string.IsNullOrEmpty(appConfig.ApiKey) && !string.IsNullOrEmpty(appConfig.Secret))
+            {
+                //ToDo: Check Satellite address
+                //ToDo: Verify API-Key
+                AddIfNotEmpty(SATELLITE_ADDRESS, appConfig.SatelliteAddress);
+                AddIfNotEmpty(API_KEY, appConfig.ApiKey);
+                AddIfNotEmpty(SECRET, appConfig.Secret);
+            }
+            else
+            {
+                //Some data is missing
+                return false;
+            }
 
             return true;
         }
@@ -62,6 +76,17 @@ namespace uplink.NET.UnoHelpers.Services
             var list = _vault.FindAllByResource(Initializer._passwordResource);
             foreach (var entry in list)
                 _vault.Remove(entry);
+        }
+
+        private string Retrieve(string key)
+        {
+            return _vault.Retrieve(Initializer._passwordResource, key)?.Password;
+        }
+
+        private void AddIfNotEmpty(string key, string value)
+        {
+            if (!string.IsNullOrEmpty(value))
+                _vault.Add(new PasswordCredential(Initializer._passwordResource, key, value));
         }
     }
 }
