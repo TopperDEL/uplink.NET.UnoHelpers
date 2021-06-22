@@ -1,9 +1,14 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using MvvmGen.Events;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using uplink.NET.UnoHelpers.Interfaces;
+using uplink.NET.UnoHelpers.Services;
+using uplink.NET.UnoHelpers.ViewModels;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -95,6 +100,13 @@ namespace uplink.NET.UnoHelpers.TestApp
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
+                    var services = new ServiceCollection();
+                    services.AddTransient<LoginViewModel>();
+                    services.AddSingleton<ILoginService, LoginService>();
+                    services.AddSingleton<IEventAggregator, EventAggregator>();
+
+                    UnoHelpers.Services.Initializer.Init(services.BuildServiceProvider(true), "UPLINK_NET_UNOHELPERS_SAMPLE");
+
                     rootFrame.Navigate(typeof(uplink.NET.UnoHelpers.Views.LoginPage), e.Arguments);
                 }
                 // Ensure the current window is active
