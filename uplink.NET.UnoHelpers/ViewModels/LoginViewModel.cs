@@ -28,7 +28,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
         private void Login()
         {
             AppConfig appConfig = new AppConfig(AccessGrant, BucketName, SatelliteAddress, ApiKey, Secret, SecretVerify);
-            var loggedIn = LoginService.Login(appConfig);
+            bool loggedIn = LoginService.Login(appConfig);
 
             if (loggedIn)
             {
@@ -36,7 +36,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
             }
             else
             {
-                //ToDo: Raise error
+                EventAggregator.Publish(new ErrorOccuredMessage("Login failed"));
             }
         }
     }
