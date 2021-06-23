@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using uplink.NET.UnoHelpers.Interfaces;
+using uplink.NET.UnoHelpers.Contracts.Models;
+using uplink.NET.UnoHelpers.Contracts.Interfaces;
 using uplink.NET.UnoHelpers.Messages;
-using uplink.NET.UnoHelpers.Models;
 
 namespace uplink.NET.UnoHelpers.ViewModels
 {

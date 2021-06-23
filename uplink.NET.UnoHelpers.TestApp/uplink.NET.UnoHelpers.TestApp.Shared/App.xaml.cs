@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using uplink.NET.UnoHelpers.Interfaces;
+using uplink.NET.UnoHelpers.Contracts.Interfaces;
 using uplink.NET.UnoHelpers.Services;
 using uplink.NET.UnoHelpers.ViewModels;
 using Windows.ApplicationModel;

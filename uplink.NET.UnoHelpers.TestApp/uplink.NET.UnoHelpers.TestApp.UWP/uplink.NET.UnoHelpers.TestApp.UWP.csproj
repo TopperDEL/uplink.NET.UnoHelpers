@@ -186,6 +186,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\..\uplink.NET.UnoHelpers.Contracts\uplink.NET.UnoHelpers.Contracts.csproj">
+      <Project>{7a9f88cc-ad06-4533-9d29-975ee9307007}</Project>
+      <Name>uplink.NET.UnoHelpers.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers.csproj">
       <Project>{7be48fec-c920-442e-aed1-5c41048b0a39}</Project>
       <Name>uplink.NET.UnoHelpers</Name>

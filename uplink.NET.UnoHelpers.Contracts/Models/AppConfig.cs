@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace uplink.NET.UnoHelpers.Models
+namespace uplink.NET.UnoHelpers.Contracts.Models
 {
     public class AppConfig
     {
