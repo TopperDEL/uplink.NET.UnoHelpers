@@ -18,4 +18,4 @@ jobs:
     - name: Build
       run: msbuild /p:Configuration=Nuget /t:Rebuild
     - name: Nuget Push
-      run: nuget push *.nupkg
+      run: nuget push *.nupkg -ApiKey ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
