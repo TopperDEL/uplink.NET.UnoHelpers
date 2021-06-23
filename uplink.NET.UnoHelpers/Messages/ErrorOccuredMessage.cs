@@ -8,11 +8,13 @@ namespace uplink.NET.UnoHelpers.Messages
 {
     public class ErrorOccuredMessage
     {
-        public ErrorOccuredMessage(string errorMessage)
+        public ErrorOccuredMessage(string errorMessage, bool criticalError = false)
         {
             ErrorMessage = errorMessage;
+            CriticalError = criticalError;
         }
 
         public string ErrorMessage { get; }
+        public bool CriticalError { get; }
     }
 }

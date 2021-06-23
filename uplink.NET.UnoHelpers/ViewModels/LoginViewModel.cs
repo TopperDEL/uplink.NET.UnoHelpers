@@ -36,7 +36,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
             }
             else
             {
-                EventAggregator.Publish(new ErrorOccuredMessage("Login failed"));
+                EventAggregator.Publish(new ErrorOccuredMessage("Login failed - please verify your credentials"));
             }
         }
     }
