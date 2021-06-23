@@ -17,7 +17,5 @@ jobs:
       run: nuget restore
     - name: Build
       run: msbuild /p:Configuration=Nuget /t:Rebuild
-    - name: Pack nuget
-      run: msbuild -t:pack
     - name: Nuget Push
       run: nuget push *.nupkg
