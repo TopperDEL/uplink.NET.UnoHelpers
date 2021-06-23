@@ -17,5 +17,7 @@ jobs:
       run: nuget restore
     - name: Build
       run: msbuild /p:Configuration=Nuget /t:Rebuild
-    - name: Nuget Push
-      run: nuget push D:\a\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\bin\Nuget\uplink.NET.UnoHelpers.0.9.0.nupkg -ApiKey ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
+    - name: Nuget Push Helpers
+      run: nuget push D:\a\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\bin\Nuget\uplink.NET.UnoHelpers.0.9.1.nupkg -ApiKey ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
+    - name: Nuget Push Contracts
+      run: nuget push D:\a\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\bin\Nuget\uplink.NET.UnoHelpers.Contracts.0.9.1.nupkg -ApiKey ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
