@@ -18,6 +18,7 @@
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>storj dcs uplink uno platform</PackageTags>
     <PackageReleaseNotes>First version - work in process</PackageReleaseNotes>
+    <Configurations>Debug;Release;Nuget</Configurations>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MvvmGen" Version="1.1.1" />

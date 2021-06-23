@@ -16,7 +16,7 @@ jobs:
     - name: Restore NuGet Packages
       run: nuget restore
     - name: Build
-      run: msbuild /p:Configuration=Release /t:Rebuild
+      run: msbuild /p:Configuration=Nuget /t:Rebuild
     - name: Publish
       uses: brandedoutcast/publish-nuget@v2.5.2  
       with: 
