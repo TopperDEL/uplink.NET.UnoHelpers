@@ -17,9 +17,7 @@ jobs:
       run: nuget restore
     - name: Build
       run: msbuild /p:Configuration=Nuget /t:Rebuild
-    - name: Publish
-      uses: brandedoutcast/publish-nuget@v2.5.2  
-      with: 
-        PROJECT_FILE_PATH: uplink.NET.UnoHelpers/uplink.NET.UnoHelpers.csproj
-        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-        INCLUDE_SYMBOLS: true
+    - name: Pack nuget
+      run: msbuild -t:pack
+    - name: Nuget Push
+      run: nuget push *.nupkg
