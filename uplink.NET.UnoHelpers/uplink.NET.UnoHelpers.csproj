@@ -37,10 +37,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\StorjLogo.png" />
+    <None Remove="Resources\Animations.xaml" />
     <None Remove="Views\CurrentUploadsPage.xaml" />
     <None Remove="Views\LoginPage.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <UpToDateCheckInput Remove="Resources\Animations.xaml" />
     <UpToDateCheckInput Remove="Views\CurrentUploadsPage.xaml" />
     <UpToDateCheckInput Remove="Views\LoginPage.xaml" />
   </ItemGroup>
@@ -56,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
 		<PRIResource Include="$(MSBuildThisFileDirectory)Strings\de\UnoHelpers.resw" />
