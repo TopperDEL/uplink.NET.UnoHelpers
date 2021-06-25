@@ -24,6 +24,7 @@
   <ItemGroup>
     <PackageReference Include="MvvmGen" Version="1.1.1" />
     <PackageReference Include="Uno.UI" Version="3.8.6" />
+    <PackageReference Include="XamlFlair.Uno" Version="1.2.7" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="**\*.xaml" Exclude="bin\**\*.xaml;obj\**\*.xaml" />
