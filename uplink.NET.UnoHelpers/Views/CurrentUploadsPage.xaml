@@ -9,6 +9,17 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="Current uploads"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <CommandBar Grid.Row="0" Foreground="White" Background="{StaticResource StorjDefaultBrush}">
+            <AppBarButton x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Back" Icon="Back" Label="Back" Foreground="White"/>
+            <CommandBar.Content>
+                <TextBlock x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Progress" Text="Progress" Margin="10" Foreground="White" FontWeight="Bold"/>
+            </CommandBar.Content>
+        </CommandBar>
+        <TextBlock Grid.Row="1" Text="Current uploads"/>
     </Grid>
 </Page>

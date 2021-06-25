@@ -108,7 +108,7 @@ namespace uplink.NET.UnoHelpers.TestApp
 
                     UnoHelpers.Services.Initializer.Init(services.BuildServiceProvider(true), "UPLINK_NET_UNOHELPERS_SAMPLE");
 
-                    rootFrame.Navigate(typeof(uplink.NET.UnoHelpers.Views.LoginPage), e.Arguments);
+                    rootFrame.Navigate(typeof(uplink.NET.UnoHelpers.Views.CurrentUploadsPage), e.Arguments);
                 }
                 // Ensure the current window is active
                 _window.Activate();
