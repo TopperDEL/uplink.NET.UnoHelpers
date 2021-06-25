@@ -54,15 +54,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-		<PRIResource Include="$(MSBuildThisFileDirectory)Strings\de\UnoHelpers.resw" />
-	</ItemGroup>
-	<ItemGroup>
-		<PRIResource Include="$(MSBuildThisFileDirectory)Strings\en\UnoHelpers.resw" />
-	</ItemGroup>
+	<PRIResource Include="$(MSBuildThisFileDirectory)Strings\en\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+	<PRIResource Include="$(MSBuildThisFileDirectory)Strings\de\Resources.resw" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\uplink.NET.UnoHelpers.Contracts\uplink.NET.UnoHelpers.Contracts.csproj" />
   </ItemGroup>
