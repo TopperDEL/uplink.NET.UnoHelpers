@@ -57,6 +57,7 @@ namespace uplink.NET.UnoHelpers.TestApp
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            //Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "de";//Just for testing different languages quickly
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {

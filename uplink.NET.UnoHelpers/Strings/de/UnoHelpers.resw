@@ -120,4 +120,31 @@
   <data name="AccessGrant.Header" xml:space="preserve">
     <value>Zugriffsschlüssel</value>
   </data>
+  <data name="ApiKey.Header" xml:space="preserve">
+    <value>API Schlüssel</value>
+  </data>
+  <data name="BucketName.Header" xml:space="preserve">
+    <value>Basispfad (bucket)</value>
+  </data>
+  <data name="HaveNoAccount.Text" xml:space="preserve">
+    <value>Noch kein Account? </value>
+  </data>
+  <data name="LoginButton.Content" xml:space="preserve">
+    <value>Anmelden</value>
+  </data>
+  <data name="LoginVia.Title" xml:space="preserve">
+    <value>Anmelden per</value>
+  </data>
+  <data name="RegisterForFree.Text" xml:space="preserve">
+    <value>Hier kostenlos anmelden</value>
+  </data>
+  <data name="SatelliteAddress.Header" xml:space="preserve">
+    <value>Adresse des Satelliten</value>
+  </data>
+  <data name="Secret.Header" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="SecretVerify.Header" xml:space="preserve">
+    <value>Passwort (zur Prüfung)</value>
+  </data>
 </root>
