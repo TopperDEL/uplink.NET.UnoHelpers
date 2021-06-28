@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="uplink.NET.UnoHelpers/Resources/DefaultStyles.xaml" />
                 <ResourceDictionary Source="uplink.NET.UnoHelpers/Resources/Animations.xaml" />
                 <ResourceDictionary Source="uplink.NET.UnoHelpers/Resources/Converters.xaml" />
+                <ResourceDictionary Source="TestDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
