@@ -16,10 +16,13 @@
 
         <CommandBar Grid.Row="0" Foreground="White" Background="{StaticResource StorjDefaultBrush}">
             <AppBarButton x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Back" Icon="Back" Label="Back" Foreground="White"/>
+            <AppBarButton x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Refresh" Icon="Refresh" Label="Refresh" Foreground="White" Command="{Binding RefreshAsyncCommand}"/>
             <CommandBar.Content>
                 <TextBlock x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Progress" Text="Progress" Margin="10" Foreground="White" FontWeight="Bold"/>
             </CommandBar.Content>
         </CommandBar>
-        <TextBlock Grid.Row="1" Text="Current uploads"/>
+        <ListView Grid.Row="1" ItemsSource="{Binding UploadQueueEntries, Mode=OneWay}">
+            
+        </ListView>
     </Grid>
 </Page>

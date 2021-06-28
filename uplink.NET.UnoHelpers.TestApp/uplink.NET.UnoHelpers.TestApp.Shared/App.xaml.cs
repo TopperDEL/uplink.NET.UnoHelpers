@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using uplink.NET.Interfaces;
 using uplink.NET.UnoHelpers.Contracts.Interfaces;
 using uplink.NET.UnoHelpers.Services;
 using uplink.NET.UnoHelpers.ViewModels;
@@ -103,8 +104,10 @@ namespace uplink.NET.UnoHelpers.TestApp
                     // parameter
                     var services = new ServiceCollection();
                     services.AddTransient<LoginViewModel>();
+                    services.AddTransient<CurrentUploadsViewModel>();
                     services.AddSingleton<ILoginService, LoginService>();
                     services.AddSingleton<IEventAggregator, EventAggregator>();
+                    services.AddSingleton<IUploadQueueService, MockServices.UploadQueueServiceMock>();
 
                     UnoHelpers.Services.Initializer.Init(services.BuildServiceProvider(true), "UPLINK_NET_UNOHELPERS_SAMPLE");
 
