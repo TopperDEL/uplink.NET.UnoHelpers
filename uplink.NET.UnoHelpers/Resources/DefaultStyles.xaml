@@ -4,7 +4,10 @@
 
     <Color x:Key="StorjBlue">#276CFF</Color>
     <SolidColorBrush x:Key="StorjDefaultBrush" Color="{StaticResource StorjBlue}"/>
-    
+
+    <Color x:Key="FailedColor">Red</Color>
+    <SolidColorBrush x:Key="FailedBrush" Color="{StaticResource FailedColor}"/>
+
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Light">
             <SolidColorBrush x:Key="ButtonBackground" Color="{StaticResource StorjBlue}"/>

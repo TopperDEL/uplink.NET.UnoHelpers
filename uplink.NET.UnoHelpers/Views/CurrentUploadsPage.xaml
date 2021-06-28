@@ -37,7 +37,7 @@
 
                         <TextBlock Grid.Row="0" Text="{Binding Identifier}"/>
                         <ProgressBar Grid.Row="1" Maximum="{Binding TotalBytes}" Value="{Binding BytesCompleted}" Foreground="{StaticResource StorjDefaultBrush}" Visibility="{Binding Failed, Converter={StaticResource FalseIsVisibleConverter}}"/>
-                        <TextBlock Grid.Row="1" Text="{Binding FailedMessage}" TextWrapping="WrapWholeWords" Foreground="Red" Visibility="{Binding Failed, Converter={StaticResource TrueIsVisibleConverter}}"/>
+                        <TextBlock Grid.Row="1" Text="{Binding FailedMessage}" TextWrapping="WrapWholeWords" Foreground="{StaticResource FailedBrush}" Visibility="{Binding Failed, Converter={StaticResource TrueIsVisibleConverter}}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
