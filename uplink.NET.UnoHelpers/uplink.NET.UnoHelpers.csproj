@@ -39,11 +39,13 @@
   <ItemGroup>
     <None Remove="Assets\StorjLogo.png" />
     <None Remove="Resources\Animations.xaml" />
+    <None Remove="Resources\Converters.xaml" />
     <None Remove="Views\CurrentUploadsPage.xaml" />
     <None Remove="Views\LoginPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <UpToDateCheckInput Remove="Resources\Animations.xaml" />
+    <UpToDateCheckInput Remove="Resources\Converters.xaml" />
     <UpToDateCheckInput Remove="Views\CurrentUploadsPage.xaml" />
     <UpToDateCheckInput Remove="Views\LoginPage.xaml" />
   </ItemGroup>

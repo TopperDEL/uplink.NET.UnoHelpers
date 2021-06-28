@@ -22,7 +22,25 @@
             </CommandBar.Content>
         </CommandBar>
         <ListView Grid.Row="1" ItemsSource="{Binding UploadQueueEntries, Mode=OneWay}">
-            
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid MaxWidth="400">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Text="{Binding Identifier}"/>
+                        <ProgressBar Grid.Row="1" Maximum="{Binding TotalBytes}" Value="{Binding BytesCompleted}" Foreground="{StaticResource StorjDefaultBrush}" Visibility="{Binding Failed, Converter={StaticResource FalseIsVisibleConverter}}"/>
+                        <TextBlock Grid.Row="1" Text="{Binding FailedMessage}" TextWrapping="WrapWholeWords" Foreground="Red" Visibility="{Binding Failed, Converter={StaticResource TrueIsVisibleConverter}}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </Page>
