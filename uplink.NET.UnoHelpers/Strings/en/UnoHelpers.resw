@@ -141,6 +141,9 @@
   <data name="Progress.Text" xml:space="preserve">
     <value>Progress</value>
   </data>
+  <data name="Refresh.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
   <data name="RegisterForFree.Text" xml:space="preserve">
     <value>Register for free</value>
   </data>
