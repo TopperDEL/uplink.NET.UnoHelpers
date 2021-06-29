@@ -138,6 +138,9 @@
   <data name="LoginVia.Title" xml:space="preserve">
     <value>Anmelden per</value>
   </data>
+  <data name="NoUploadInProgress.Text" xml:space="preserve">
+    <value>Keine ausstehenden Übertragungen</value>
+  </data>
   <data name="Progress.Text" xml:space="preserve">
     <value>Fortschritt</value>
   </data>
@@ -155,5 +158,8 @@
   </data>
   <data name="SecretVerify.Header" xml:space="preserve">
     <value>Passwort (zur Prüfung)</value>
+  </data>
+  <data name="UploadInProgress.Text" xml:space="preserve">
+    <value>Wird hochgeladen...</value>
   </data>
 </root>

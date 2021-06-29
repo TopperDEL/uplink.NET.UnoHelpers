@@ -18,6 +18,7 @@ namespace uplink.NET.UnoHelpers.TestApp.MockServices
         int _currentId;
         UploadQueueEntry _firstOne;
         UploadQueueEntry _secondOne;
+        int _maxTimer = 0;
 
         public UploadQueueServiceMock()
         {
@@ -36,6 +37,7 @@ namespace uplink.NET.UnoHelpers.TestApp.MockServices
             while (true)
             {
                 await Task.Delay(1000);
+                _maxTimer++;
                 if (_currentId < 10)
                 {
                     var entry = new UploadQueueEntry { Id = _currentId++, Identifier = Guid.NewGuid().ToString() + ".jpg", TotalBytes = 1024 * 100, BytesCompleted = 0 };
@@ -43,7 +45,7 @@ namespace uplink.NET.UnoHelpers.TestApp.MockServices
                     UploadQueueChangedEvent?.Invoke(QueueChangeType.EntryAdded, entry);
                 }
 
-                _firstOne.BytesCompleted += 6048;
+                _firstOne.BytesCompleted += 9048;
                 UploadQueueChangedEvent?.Invoke(QueueChangeType.EntryUpdated, _firstOne);
 
                 if (_firstOne.BytesCompleted > 5 * 3048)
@@ -55,7 +57,17 @@ namespace uplink.NET.UnoHelpers.TestApp.MockServices
 
                 if (_firstOne.BytesCompleted >= _firstOne.TotalBytes)
                 {
+                    _entries.Remove(_firstOne);
                     UploadQueueChangedEvent?.Invoke(QueueChangeType.EntryRemoved, _firstOne);
+                }
+
+                if(_maxTimer > 15)
+                {
+                    foreach(var entry in _entries)
+                    {
+                        UploadQueueChangedEvent?.Invoke(QueueChangeType.EntryRemoved, entry);
+                    }
+                    return;
                 }
             }
         }

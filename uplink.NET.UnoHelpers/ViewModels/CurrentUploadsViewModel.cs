@@ -18,6 +18,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
     public partial class CurrentUploadsViewModel
     {
         [Property] private ObservableCollection<UploadQueueEntryViewModel> _uploadQueueEntries;
+        [Property] private bool _hasCurrentUpload;
 
         partial void OnInitialize()
         {
@@ -65,6 +66,8 @@ namespace uplink.NET.UnoHelpers.ViewModels
                         }
                         break;
                 }
+
+                HasCurrentUpload = UploadQueueEntries.Count > 0;
             });
         }
 
@@ -79,6 +82,8 @@ namespace uplink.NET.UnoHelpers.ViewModels
                 newEntryVM.Load(entry);
                 UploadQueueEntries.Add(newEntryVM);
             }
+
+            HasCurrentUpload = UploadQueueEntries.Count > 0;
         }
 
         public void OnNavigatedAway()

@@ -138,6 +138,9 @@
   <data name="LoginVia.Title" xml:space="preserve">
     <value>Login via</value>
   </data>
+  <data name="NoUploadInProgress.Text" xml:space="preserve">
+    <value>No pending transfer</value>
+  </data>
   <data name="Progress.Text" xml:space="preserve">
     <value>Progress</value>
   </data>
@@ -155,5 +158,8 @@
   </data>
   <data name="SecretVerify.Header" xml:space="preserve">
     <value>Secret verify</value>
+  </data>
+  <data name="UploadInProgress.Text" xml:space="preserve">
+    <value>Uploading...</value>
   </data>
 </root>

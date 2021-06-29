@@ -11,6 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -21,7 +22,9 @@
                 <TextBlock x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Progress" Text="Progress" Margin="10" Foreground="White" FontWeight="Bold"/>
             </CommandBar.Content>
         </CommandBar>
-        <ListView Grid.Row="1" ItemsSource="{Binding UploadQueueEntries, Mode=OneWay}">
+        <TextBlock Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/UploadInProgress" Text="Uploading..." Margin="5" HorizontalTextAlignment="Center" Visibility="{Binding HasCurrentUpload, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
+        <TextBlock Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/NoUploadInProgress" Text="No pending transfer" Margin="5" HorizontalTextAlignment="Center" Visibility="{Binding HasCurrentUpload, Converter={StaticResource FalseIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
+        <ListView Grid.Row="2" ItemsSource="{Binding UploadQueueEntries, Mode=OneWay}" Visibility="{Binding HasCurrentUpload, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
@@ -36,8 +39,8 @@
                         </Grid.RowDefinitions>
 
                         <TextBlock Grid.Row="0" Text="{Binding Identifier}"/>
-                        <ProgressBar Grid.Row="1" Maximum="{Binding TotalBytes}" Value="{Binding BytesCompleted, Mode=TwoWay}" Foreground="{StaticResource StorjDefaultBrush}" Visibility="{Binding Failed, Converter={StaticResource FalseIsVisibleConverter}, Mode=TwoWay}"/>
-                        <TextBlock Grid.Row="1" Text="{Binding FailedMessage, Mode=TwoWay}" TextWrapping="WrapWholeWords" Foreground="{StaticResource FailedBrush}" Visibility="{Binding Failed, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay}"/>
+                        <ProgressBar Grid.Row="1" Maximum="{Binding TotalBytes}" Value="{Binding BytesCompleted, Mode=TwoWay}" Foreground="{StaticResource StorjDefaultBrush}" Visibility="{Binding Failed, Converter={StaticResource FalseIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
+                        <TextBlock Grid.Row="1" Text="{Binding FailedMessage, Mode=TwoWay}" TextWrapping="WrapWholeWords" Foreground="{StaticResource FailedBrush}" Visibility="{Binding Failed, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
