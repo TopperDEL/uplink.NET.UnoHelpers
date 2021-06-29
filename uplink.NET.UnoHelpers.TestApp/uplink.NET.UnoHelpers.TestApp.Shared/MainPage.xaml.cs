@@ -26,5 +26,15 @@ namespace uplink.NET.UnoHelpers.TestApp
         {
             this.InitializeComponent();
         }
+
+        private void LoginPage_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(UnoHelpers.Views.LoginPage));
+        }
+
+        private void CurrentUploadsPage_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(UnoHelpers.Views.CurrentUploadsPage));
+        }
     }
 }

@@ -8,6 +8,14 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-		<TextBlock Text="Hello, world!" Margin="20" FontSize="30" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+		<TextBlock Grid.Row="0" Text="Uno-Helpers test app" Margin="20" FontSize="30" />
+        <Button Grid.Row="1" Content="Login-Page" Click="LoginPage_Click"/>
+        <Button Grid.Row="2" Content="Current Uploads-Page" Click="CurrentUploadsPage_Click"/>
     </Grid>
 </Page>
