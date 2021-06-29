@@ -28,7 +28,6 @@ namespace uplink.NET.UnoHelpers.Views
         {
             this.InitializeComponent();
             DataContext = _viewModel = (CurrentUploadsViewModel)Services.Initializer.GetServiceProvider().GetService(typeof(CurrentUploadsViewModel));
-            //_viewModel.SetDispatcherAction((act)=> { Dispatcher.TryRunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, act); });
             _viewModel.SetDispatcher(this.Dispatcher);
         }
     }
