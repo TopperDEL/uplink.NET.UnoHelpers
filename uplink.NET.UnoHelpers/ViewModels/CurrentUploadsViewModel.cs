@@ -7,21 +7,67 @@ using System.Text;
 using System.Threading.Tasks;
 using uplink.NET.Interfaces;
 using uplink.NET.Models;
+using System.Linq;
 
 namespace uplink.NET.UnoHelpers.ViewModels
 {
     [Inject(typeof(IEventAggregator))]
     [Inject(typeof(IUploadQueueService))]
+    //[Inject(typeof(IUploadQueueEntryViewModelFactory))]
     [ViewModel]
     public partial class CurrentUploadsViewModel
     {
-        [Property] private ObservableCollection<UploadQueueEntry> _uploadQueueEntries;
+        [Property] private ObservableCollection<UploadQueueEntryViewModel> _uploadQueueEntries;
 
         partial void OnInitialize()
         {
-            UploadQueueEntries = new ObservableCollection<UploadQueueEntry>();
+            UploadQueueEntries = new ObservableCollection<UploadQueueEntryViewModel>();
+            UploadQueueService.UploadQueueChangedEvent += UploadQueueService_UploadQueueChangedEvent;
+            RefreshAsync();
         }
-        
+
+        private Windows.UI.Core.CoreDispatcher _dispatcher;
+        public void SetDispatcher(Windows.UI.Core.CoreDispatcher dispatcher)
+        {
+            _dispatcher = dispatcher;
+        }
+
+        private async void UploadQueueService_UploadQueueChangedEvent(QueueChangeType queueChangeType, UploadQueueEntry entry)
+        {
+            await _dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                switch (queueChangeType)
+                {
+                    case QueueChangeType.EntryAdded:
+                        if (UploadQueueEntries.Where(b => b.Id == entry.Id).Count() == 0)
+                        {
+                            var newEntryVM = new UploadQueueEntryViewModel();
+                            newEntryVM.Load(entry);
+                            UploadQueueEntries.Add(newEntryVM);
+                        }
+                        break;
+                    case QueueChangeType.EntryUpdated:
+                        if (UploadQueueEntries.Where(b => b.Id == entry.Id).Count() == 0)
+                        {
+                            var newEntryVM = new UploadQueueEntryViewModel();
+                            newEntryVM.Load(entry);
+                            UploadQueueEntries.Add(newEntryVM);
+                            return;
+                        }
+                        var existing = UploadQueueEntries.Where(e => e.Id == entry.Id).FirstOrDefault();
+                        existing.Load(entry);
+                        break;
+                    case QueueChangeType.EntryRemoved:
+                        var toDelete = UploadQueueEntries.Where(e => e.Id == entry.Id).FirstOrDefault();
+                        if (toDelete != null)
+                        {
+                            UploadQueueEntries.Remove(toDelete);
+                        }
+                        break;
+                }
+            });
+        }
+
         [Command]
         public async Task RefreshAsync()
         {
@@ -29,8 +75,15 @@ namespace uplink.NET.UnoHelpers.ViewModels
             UploadQueueEntries.Clear();
             foreach (var entry in entries)
             {
-                UploadQueueEntries.Add(entry);
+                var newEntryVM = new UploadQueueEntryViewModel();
+                newEntryVM.Load(entry);
+                UploadQueueEntries.Add(newEntryVM);
             }
+        }
+
+        public void OnNavigatedAway()
+        {
+            UploadQueueService.UploadQueueChangedEvent -= UploadQueueService_UploadQueueChangedEvent;
         }
     }
 }

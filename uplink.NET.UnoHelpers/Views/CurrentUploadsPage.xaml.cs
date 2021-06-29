@@ -23,10 +23,13 @@ namespace uplink.NET.UnoHelpers.Views
     /// </summary>
     public sealed partial class CurrentUploadsPage : Page
     {
+        CurrentUploadsViewModel _viewModel;
         public CurrentUploadsPage()
         {
             this.InitializeComponent();
-            DataContext = Services.Initializer.GetServiceProvider().GetService(typeof(CurrentUploadsViewModel));
+            DataContext = _viewModel = (CurrentUploadsViewModel)Services.Initializer.GetServiceProvider().GetService(typeof(CurrentUploadsViewModel));
+            //_viewModel.SetDispatcherAction((act)=> { Dispatcher.TryRunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, act); });
+            _viewModel.SetDispatcher(this.Dispatcher);
         }
     }
 }
