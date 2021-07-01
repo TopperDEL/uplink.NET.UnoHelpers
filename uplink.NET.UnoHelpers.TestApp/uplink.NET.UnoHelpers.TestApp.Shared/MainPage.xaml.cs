@@ -25,6 +25,7 @@ namespace uplink.NET.UnoHelpers.TestApp
         public MainPage()
         {
             this.InitializeComponent();
+            CurrentUploads.Clicked += (sender, e) => { NavigateToCurrentUploadsPage(); };
         }
 
         private void LoginPage_Click(object sender, RoutedEventArgs e)
@@ -33,6 +34,11 @@ namespace uplink.NET.UnoHelpers.TestApp
         }
 
         private void CurrentUploadsPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigateToCurrentUploadsPage();
+        }
+
+        private void NavigateToCurrentUploadsPage()
         {
             this.Frame.Navigate(typeof(UnoHelpers.Views.CurrentUploadsPage));
         }

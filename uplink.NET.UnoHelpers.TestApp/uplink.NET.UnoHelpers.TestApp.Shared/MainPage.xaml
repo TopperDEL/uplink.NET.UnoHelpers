@@ -5,6 +5,7 @@
     xmlns:local="using:uplink.NET.UnoHelpers.TestApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ctrls="using:uplink.NET.UnoHelpers.Controls"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -17,5 +18,6 @@
 		<TextBlock Grid.Row="0" Text="Uno-Helpers test app" Margin="20" FontSize="30" />
         <Button Grid.Row="1" Content="Login-Page" Click="LoginPage_Click"/>
         <Button Grid.Row="2" Content="Current Uploads-Page" Click="CurrentUploadsPage_Click"/>
+        <ctrls:CurrentUploadsButton Grid.Row="3" x:Name="CurrentUploads"/>
     </Grid>
 </Page>
