@@ -30,5 +30,10 @@ namespace uplink.NET.UnoHelpers.Views
             DataContext = _viewModel = (CurrentUploadsViewModel)Services.Initializer.GetServiceProvider().GetService(typeof(CurrentUploadsViewModel));
             _viewModel.SetDispatcher(this.Dispatcher);
         }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            _viewModel.OnNavigatedAway();
+        }
     }
 }

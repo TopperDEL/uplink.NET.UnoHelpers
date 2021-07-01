@@ -89,6 +89,12 @@ namespace uplink.NET.UnoHelpers.ViewModels
             CurrentUploadCount = UploadQueueEntries.Count;
         }
 
+        [Command]
+        public void NavigateBack()
+        {
+            EventAggregator.Publish(new Messages.NavigateBackFromCurrentUploadsMessage());
+        }
+
         public void OnNavigatedAway()
         {
             UploadQueueService.UploadQueueChangedEvent -= UploadQueueService_UploadQueueChangedEvent;

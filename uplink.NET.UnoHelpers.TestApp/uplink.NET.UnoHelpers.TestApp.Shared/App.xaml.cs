@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using uplink.NET.Interfaces;
 using uplink.NET.UnoHelpers.Contracts.Interfaces;
+using uplink.NET.UnoHelpers.Messages;
 using uplink.NET.UnoHelpers.Services;
 using uplink.NET.UnoHelpers.ViewModels;
 using Windows.ApplicationModel;
@@ -27,7 +28,7 @@ namespace uplink.NET.UnoHelpers.TestApp
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    public sealed partial class App : Application
+    public sealed partial class App : Application, IEventSubscriber<NavigateBackFromCurrentUploadsMessage>
     {
 #if NET5_0 && WINDOWS
         private Window _window;
@@ -110,6 +111,9 @@ namespace uplink.NET.UnoHelpers.TestApp
                     services.AddSingleton<IUploadQueueService, MockServices.UploadQueueServiceMock>();
 
                     UnoHelpers.Services.Initializer.Init(services.BuildServiceProvider(true), "UPLINK_NET_UNOHELPERS_SAMPLE");
+
+                    var eventAggregator = uplink.NET.UnoHelpers.Services.Initializer.GetServiceProvider().GetService<IEventAggregator>();
+                    eventAggregator.RegisterSubscriber(this);
 
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
@@ -196,6 +200,12 @@ namespace uplink.NET.UnoHelpers.TestApp
             });
 
             global::Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory = factory;
+        }
+
+        public void OnEvent(NavigateBackFromCurrentUploadsMessage eventData)
+        {
+            var rootFrame = _window.Content as Frame;
+            rootFrame.Navigate(typeof(MainPage));
         }
     }
 }
