@@ -21,6 +21,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uplink.NET.UnoHelpers.TestA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uplink.NET.UnoHelpers.Contracts", "uplink.NET.UnoHelpers.Contracts\uplink.NET.UnoHelpers.Contracts.csproj", "{7A9F88CC-AD06-4533-9D29-975EE9307007}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{C5715575-1BC8-476E-81F4-019D1182F86A}"
+	ProjectSection(SolutionItems) = preProject
+		ToDo.txt = ToDo.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		uplink.NET.UnoHelpers.TestApp\uplink.NET.UnoHelpers.TestApp.Shared\uplink.NET.UnoHelpers.TestApp.Shared.projitems*{6279c845-92f8-4333-ab99-3d213163593c}*SharedItemsImports = 13
