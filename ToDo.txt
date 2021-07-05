@@ -3,3 +3,4 @@
 - Cancel upload-button (really?)
 - Failed-Message fully readable
 - Login via APIkey does not yet provide an access grant
+- Show error on CurrentUploads-Button, too
