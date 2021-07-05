@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using uplink.NET.Interfaces;
@@ -72,7 +73,12 @@ namespace uplink.NET.UnoHelpers.TestApp.MockServices
             }
         }
 
-        public Task AddObjectToUploadQueue(string bucketName, string key, string accessGrant, byte[] objectData, string identifier)
+        public Task AddObjectToUploadQueueAsync(string bucketName, string key, string accessGrant, byte[] objectData, string identifier)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task AddObjectToUploadQueueAsync(string bucketName, string key, string accessGrant, Stream stream, string identifier)
         {
             throw new NotImplementedException();
         }
