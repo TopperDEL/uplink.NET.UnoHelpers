@@ -1,4 +1,3 @@
 - Delete-Buttons for failed uploads
 - RetryButton for failed uploads
 - Cancel upload-button (really?)
-- Login via APIkey does not yet provide an access grant
