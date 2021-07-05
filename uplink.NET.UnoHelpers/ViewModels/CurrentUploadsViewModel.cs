@@ -13,7 +13,6 @@ namespace uplink.NET.UnoHelpers.ViewModels
 {
     [Inject(typeof(IEventAggregator))]
     [Inject(typeof(IUploadQueueService))]
-    //[Inject(typeof(IUploadQueueEntryViewModelFactory))]
     [ViewModel]
     public partial class CurrentUploadsViewModel
     {
