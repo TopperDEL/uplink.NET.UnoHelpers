@@ -68,6 +68,7 @@ namespace uplink.NET.UnoHelpers.TestApp.MockServices
                     {
                         UploadQueueChangedEvent?.Invoke(QueueChangeType.EntryRemoved, entry);
                     }
+                    _entries.Clear();
                     return;
                 }
             }
