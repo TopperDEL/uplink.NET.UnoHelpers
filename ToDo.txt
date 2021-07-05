@@ -2,4 +2,3 @@
 - RetryButton for failed uploads
 - Cancel upload-button (really?)
 - Login via APIkey does not yet provide an access grant
-- Show error on CurrentUploads-Button, too
