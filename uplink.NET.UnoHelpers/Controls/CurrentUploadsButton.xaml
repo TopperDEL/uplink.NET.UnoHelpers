@@ -29,6 +29,7 @@
                         Grid.Column="2" Grid.ColumnSpan="2"  CornerRadius="10" BorderBrush="{StaticResource StorjDefaultBrush}" Background="{StaticResource StorjDefaultBrush}">
                     <TextBlock Text="{Binding CurrentUploadCount, Mode=OneWay}" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="2"/>
                 </Border>
+                <TextBlock Text="!" Foreground="Red" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Visibility="{Binding HasFailedUploads, Mode=OneWay, Converter={StaticResource TrueIsVisibleConverter}}"/>
             </Grid>
         </Button>
     </Grid>

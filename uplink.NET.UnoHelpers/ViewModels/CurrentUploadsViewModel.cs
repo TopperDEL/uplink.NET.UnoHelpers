@@ -18,6 +18,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
     {
         [Property] private ObservableCollection<UploadQueueEntryViewModel> _uploadQueueEntries;
         [Property] private bool _hasCurrentUpload;
+        [Property] private bool _hasFailedUploads;
         [Property] private int _currentUploadCount;
 
         partial void OnInitialize()
@@ -67,8 +68,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
                         break;
                 }
 
-                HasCurrentUpload = UploadQueueEntries.Count > 0;
-                CurrentUploadCount = UploadQueueEntries.Count;
+                RefreshMetafields();
             });
         }
 
@@ -84,8 +84,14 @@ namespace uplink.NET.UnoHelpers.ViewModels
                 UploadQueueEntries.Add(newEntryVM);
             }
 
+            RefreshMetafields();
+        }
+
+        private void RefreshMetafields()
+        {
             HasCurrentUpload = UploadQueueEntries.Count > 0;
             CurrentUploadCount = UploadQueueEntries.Count;
+            HasFailedUploads = UploadQueueEntries.Where(u => u.Failed).Count() > 0;
         }
 
         [Command]
