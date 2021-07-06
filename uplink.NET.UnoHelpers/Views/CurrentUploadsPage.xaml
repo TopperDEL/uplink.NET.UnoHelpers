@@ -14,14 +14,11 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <CommandBar Grid.Row="0" Foreground="White" Background="{StaticResource StorjDefaultBrush}">
-            <AppBarButton x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Back" Icon="Back" Label="Back" Foreground="White" Command="{Binding NavigateBackCommand}"/>
-            <AppBarButton x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Refresh" Icon="Refresh" Label="Refresh" Foreground="White" Command="{Binding RefreshAsyncCommand}"/>
-            <CommandBar.Content>
-                <TextBlock x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Progress" Text="Progress" Margin="10" Foreground="White" FontWeight="Bold"/>
-            </CommandBar.Content>
-        </CommandBar>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="{StaticResource StorjDefaultBrush}">
+            <TextBlock x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Progress" Text="Progress" Margin="10" Foreground="White" FontWeight="Bold" MinWidth="300"/>
+            <AppBarButton x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Back" Icon="Back" Label="Back" MinWidth="60" Foreground="White" Command="{Binding NavigateBackCommand}"/>
+            <AppBarButton x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Refresh" Icon="Refresh" Label="Refresh" MinWidth="60" Foreground="White" Command="{Binding RefreshAsyncCommand}"/>
+        </StackPanel>
         <TextBlock Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/UploadInProgress" Text="Uploading..." Margin="5" HorizontalTextAlignment="Center" Visibility="{Binding HasCurrentUpload, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
         <TextBlock Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/NoUploadInProgress" Text="No pending transfer" Margin="5" HorizontalTextAlignment="Center" Visibility="{Binding HasCurrentUpload, Converter={StaticResource FalseIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
         <ListView Grid.Row="2" ItemsSource="{Binding UploadQueueEntries, Mode=OneWay}" Visibility="{Binding HasCurrentUpload, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}">
