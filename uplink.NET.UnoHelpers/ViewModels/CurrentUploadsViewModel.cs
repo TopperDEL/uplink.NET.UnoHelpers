@@ -43,7 +43,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
                     case QueueChangeType.EntryAdded:
                         if (UploadQueueEntries.Where(b => b.Id == entry.Id).Count() == 0)
                         {
-                            var newEntryVM = new UploadQueueEntryViewModel();
+                            var newEntryVM = new UploadQueueEntryViewModel(UploadQueueService);
                             newEntryVM.Load(entry);
                             UploadQueueEntries.Add(newEntryVM);
                         }
@@ -51,7 +51,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
                     case QueueChangeType.EntryUpdated:
                         if (UploadQueueEntries.Where(b => b.Id == entry.Id).Count() == 0)
                         {
-                            var newEntryVM = new UploadQueueEntryViewModel();
+                            var newEntryVM = new UploadQueueEntryViewModel(UploadQueueService);
                             newEntryVM.Load(entry);
                             UploadQueueEntries.Add(newEntryVM);
                             return;
@@ -79,7 +79,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
             UploadQueueEntries.Clear();
             foreach (var entry in entries)
             {
-                var newEntryVM = new UploadQueueEntryViewModel();
+                var newEntryVM = new UploadQueueEntryViewModel(UploadQueueService);
                 newEntryVM.Load(entry);
                 UploadQueueEntries.Add(newEntryVM);
             }

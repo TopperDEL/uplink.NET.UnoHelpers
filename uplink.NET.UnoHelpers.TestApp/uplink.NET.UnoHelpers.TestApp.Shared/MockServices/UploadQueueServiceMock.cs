@@ -108,5 +108,9 @@ namespace uplink.NET.UnoHelpers.TestApp.MockServices
         {
             throw new NotImplementedException();
         }
+
+        public async Task RetryAsync(string key)
+        {
+        }
     }
 }

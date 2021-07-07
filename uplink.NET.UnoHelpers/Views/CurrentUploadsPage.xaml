@@ -32,14 +32,22 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid MaxWidth="400" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Text="{Binding Identifier}"/>
-                        <ProgressBar Grid.Row="1" Maximum="{Binding TotalBytes}" Value="{Binding BytesCompleted, Mode=TwoWay}" Foreground="{StaticResource StorjDefaultBrush}" Visibility="{Binding Failed, Converter={StaticResource FalseIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
-                        <TextBlock Grid.Row="1" Text="{Binding FailedMessage, Mode=TwoWay}" TextWrapping="WrapWholeWords" Foreground="{StaticResource FailedBrush}" Visibility="{Binding Failed, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
+                        <Button Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Command="{Binding RetryAsyncCommand}" Visibility="{Binding Failed, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"
+                                Background="White">
+                            <SymbolIcon Symbol="Refresh" Foreground="{StaticResource StorjDefaultBrush}"/>
+                        </Button>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Identifier}" TextWrapping="WrapWholeWords"/>
+                        <ProgressBar Grid.Row="1" Grid.Column="1" Maximum="{Binding TotalBytes}" Value="{Binding BytesCompleted, Mode=TwoWay}" Foreground="{StaticResource StorjDefaultBrush}" Visibility="{Binding Failed, Converter={StaticResource FalseIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding FailedMessage, Mode=TwoWay}" TextWrapping="WrapWholeWords" Foreground="{StaticResource FailedBrush}" Visibility="{Binding Failed, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
