@@ -26,7 +26,8 @@
                     </Grid.RowDefinitions>
 
                     <TextBox Grid.Row="0" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/AccessGrant" Text="{Binding AccessGrant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Access grant" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
-                    <TextBox Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/BucketName" Text="{Binding BucketName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Bucket name" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
+                    <TextBox Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/BucketName" Text="{Binding BucketName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Bucket name" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"
+                             TextChanging="TextBox_TextChanging"/>
                     <Button Grid.Row="2" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/LoginButton" Command="{Binding LoginCommand}" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource StorjDefaultBrush}" Foreground="White" CornerRadius="5"/>
                 </Grid>
             </PivotItem>

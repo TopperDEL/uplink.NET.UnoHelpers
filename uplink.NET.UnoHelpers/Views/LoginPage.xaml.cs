@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 using uplink.NET.UnoHelpers.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -27,6 +28,30 @@ namespace uplink.NET.UnoHelpers.Views
         {
             this.InitializeComponent();
             DataContext = Services.Initializer.GetServiceProvider().GetService(typeof(LoginViewModel));
+        }
+
+        private void TextBox_TextChanging(object sender, TextBoxTextChangingEventArgs e)
+        {
+            string bucketRegEx = "(?!^(\\d{1,3}\\.){3}\\d{1,3}$)(^[a-z0-9]([a-z0-9-]*(\\.[a-z0-9])?)*$)";
+            TextBox sendingTextBox = (TextBox)sender;
+            var newText = sendingTextBox.Text.ToLower();
+
+            if (Regex.Match(newText, bucketRegEx).Success)
+            {
+                sendingTextBox.Text = newText;
+            }
+            else
+            {
+                if (newText.Length > 1)
+                {
+                    sendingTextBox.Text = newText.Substring(0, newText.Length - 1);
+                }
+                else
+                {
+                    sendingTextBox.Text = "";
+                }
+            }
+            sendingTextBox.SelectionStart = sendingTextBox.Text.Length;
         }
     }
 }
