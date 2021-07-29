@@ -27,7 +27,7 @@
 
                     <TextBox Grid.Row="0" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/AccessGrant" Text="{Binding AccessGrant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Access grant" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
                     <TextBox Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/BucketName" Text="{Binding BucketName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Bucket name" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"
-                             TextChanging="TextBox_TextChanging"/>
+                             TextChanging="TextBox_TextChanging" KeyDown="TextBox_KeyDown_CheckEnter"/>
                     <Button Grid.Row="2" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/LoginButton" Command="{Binding LoginCommand}" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource StorjDefaultBrush}" Foreground="White" CornerRadius="5"/>
                 </Grid>
             </PivotItem>
@@ -45,7 +45,8 @@
                     <TextBox Grid.Row="0" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/SatelliteAddress" Text="{Binding SatelliteAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Satellite Address" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
                     <TextBox Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/ApiKey" Text="{Binding ApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Api-Key" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
                     <PasswordBox Grid.Row="2" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Secret" Password="{Binding Secret, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Secret" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
-                    <PasswordBox Grid.Row="3" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/SecretVerify" Password="{Binding SecretVerify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Secret verify" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
+                    <PasswordBox Grid.Row="3" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/SecretVerify" Password="{Binding SecretVerify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Secret verify" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"
+                                 KeyDown="TextBox_KeyDown_CheckEnter"/>
                     <!--<TextBlock x:Uid="SecretAndVerifyNotMatch" Text="Secret and Secretverify do not match" Foreground="Red" Visibility="{Binding SecretsDoNotMatch, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
                     <Button Grid.Row="4" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/LoginButton" Command="{Binding LoginCommand}" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource StorjDefaultBrush}" Foreground="White" CornerRadius="5"/>
                 </Grid>

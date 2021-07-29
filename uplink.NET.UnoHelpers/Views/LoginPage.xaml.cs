@@ -24,10 +24,11 @@ namespace uplink.NET.UnoHelpers.Views
     /// </summary>
     public sealed partial class LoginPage : Page
     {
+        LoginViewModel _vm;
         public LoginPage()
         {
             this.InitializeComponent();
-            DataContext = Services.Initializer.GetServiceProvider().GetService(typeof(LoginViewModel));
+            DataContext = _vm = (LoginViewModel)Services.Initializer.GetServiceProvider().GetService(typeof(LoginViewModel));
         }
 
         private void TextBox_TextChanging(object sender, TextBoxTextChangingEventArgs e)
@@ -52,6 +53,14 @@ namespace uplink.NET.UnoHelpers.Views
                 }
             }
             sendingTextBox.SelectionStart = sendingTextBox.Text.Length;
+        }
+
+        private void TextBox_KeyDown_CheckEnter(object sender, KeyRoutedEventArgs e)
+        {
+            if(e.Key == Windows.System.VirtualKey.Enter && _vm.LoginCommand.CanExecute(null))
+            {
+                _vm.LoginCommand.Execute(null);
+            }
         }
     }
 }
