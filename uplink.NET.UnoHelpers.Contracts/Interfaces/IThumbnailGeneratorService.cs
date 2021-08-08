@@ -8,6 +8,6 @@ namespace uplink.NET.UnoHelpers.Contracts.Interfaces
 {
     public interface IThumbnailGeneratorService
     {
-        Task<Stream> GenerateThumbnailFromImageAsync(Stream imageStream, int targetWidth, int targetHeight);
+        Task<Stream> GenerateThumbnailForStreamAsync(Stream stream, string mimeType, int targetWidth, int targetHeight);
     }
 }

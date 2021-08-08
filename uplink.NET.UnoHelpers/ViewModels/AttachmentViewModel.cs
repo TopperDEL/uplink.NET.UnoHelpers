@@ -26,6 +26,8 @@ namespace uplink.NET.UnoHelpers.ViewModels
         [Property] BitmapImage _attachmentThumbnail;
         [Property] bool _isLoaded;
 
+        private Stream _thumbnail;
+
         partial void OnInitialize()
         {
             AttachmentThumbnail = _placeholder;
@@ -34,21 +36,26 @@ namespace uplink.NET.UnoHelpers.ViewModels
         public async Task SetAttachmentAsync(Attachment attachment)
         {
             Model = attachment;
-            Stream thumbnail = null;
-            if (attachment.MimeType.Contains("image"))
-            {
-                thumbnail = await ThumbnailGeneratorService.GenerateThumbnailFromImageAsync(attachment.AttachmentData, 400, 300);
-            }
+            _thumbnail = await ThumbnailGeneratorService.GenerateThumbnailForStreamAsync(attachment.AttachmentData, attachment.MimeType, 400, 300);
 
-            if (thumbnail != null)
+            if (_thumbnail != null)
             {
                 var bitmapImage = new BitmapImage();
-                await bitmapImage.SetSourceAsync(thumbnail.AsRandomAccessStream());
+                await bitmapImage.SetSourceAsync(_thumbnail.AsRandomAccessStream());
 
                 AttachmentThumbnail = bitmapImage;
             }
 
             IsLoaded = true;
+        }
+
+        ~AttachmentViewModel()
+        {
+            if(_thumbnail != null)
+            {
+                _thumbnail.Dispose();
+                _thumbnail = null;
+            }
         }
     }
 }
