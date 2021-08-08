@@ -25,9 +25,11 @@
               HorizontalContentAlignment="Center" HorizontalAlignment="Center">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="{Binding IsCover, Mode=OneWay, Converter={StaticResource TrueIsHiglightedConverter}, ConverterParameter={StaticResource StorjDefaultBrush}}" BorderThickness="2" CornerRadius="10" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Border BorderBrush="{Binding IsCover, Mode=OneWay, Converter={StaticResource TrueIsHiglightedConverter}, ConverterParameter={StaticResource StorjDefaultBrush}}" BorderThickness="2" CornerRadius="10"
+                            Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Grid>
                             <Image Source="{Binding AttachmentThumbnail, Mode=OneWay}" Stretch="UniformToFill"  VerticalAlignment="Center" MaxWidth="400" MaxHeight="300" MinWidth="100" MinHeight="75" HorizontalAlignment="Center"/>
+                            <ProgressRing Visibility="{Binding IsLoaded, Converter={StaticResource FalseIsVisibleConverter}}" IsActive="True" Foreground="{StaticResource StorjDefaultBrush}"/>
                         </Grid>
                     </Border>
                 </DataTemplate>

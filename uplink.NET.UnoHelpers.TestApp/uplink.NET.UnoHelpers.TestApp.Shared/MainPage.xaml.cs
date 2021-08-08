@@ -29,15 +29,6 @@ namespace uplink.NET.UnoHelpers.TestApp
             CurrentUploads.Clicked += (sender, e) => { NavigateToCurrentUploadsPage(); };
 
             var attachmentsVM = (AttachmentContainerViewModel)Services.Initializer.GetServiceProvider().GetService(typeof(AttachmentContainerViewModel));
-            var attachment1 = new AttachmentViewModel();
-            attachment1.AttachmentThumbnail = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("https://picsum.photos/seed/first/400/300"));
-            attachmentsVM.AddAttachment(attachment1);
-            var attachment2 = new AttachmentViewModel();
-            attachment2.AttachmentThumbnail = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("https://picsum.photos/seed/second/400/300"));
-            attachmentsVM.AddAttachment(attachment2);
-            var attachment3 = new AttachmentViewModel();
-            attachment3.AttachmentThumbnail = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("https://picsum.photos/seed/third/400/300"));
-            attachmentsVM.AddAttachment(attachment3);
         }
 
         private void LoginPage_Click(object sender, RoutedEventArgs e)
