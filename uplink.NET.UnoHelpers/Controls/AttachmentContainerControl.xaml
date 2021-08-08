@@ -17,7 +17,7 @@
             <DataTemplate>
                 <Border BorderBrush="{Binding IsCover, Mode=OneWay, Converter={StaticResource TrueIsHiglightedConverter}, ConverterParameter={StaticResource StorjDefaultBrush}}" BorderThickness="2" CornerRadius="10" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Grid>
-                        <Image Source="{Binding AttachmentThumbnail, Mode=OneWay}" Stretch="UniformToFill" Width="260" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <Image Source="{Binding AttachmentThumbnail, Mode=OneWay}" Stretch="UniformToFill"  VerticalAlignment="Center" MaxWidth="400" MaxHeight="300" MinWidth="100" MinHeight="75" HorizontalAlignment="Center"/>
                     </Grid>
                 </Border>
             </DataTemplate>

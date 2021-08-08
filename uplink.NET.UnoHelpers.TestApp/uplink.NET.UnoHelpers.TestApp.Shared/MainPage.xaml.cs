@@ -30,13 +30,13 @@ namespace uplink.NET.UnoHelpers.TestApp
 
             var attachmentsVM = (AttachmentContainerViewModel)Services.Initializer.GetServiceProvider().GetService(typeof(AttachmentContainerViewModel));
             var attachment1 = new AttachmentViewModel();
-            attachment1.AttachmentThumbnail = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("https://picsum.photos/seed/first/260/200"));
+            attachment1.AttachmentThumbnail = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("https://picsum.photos/seed/first/400/300"));
             attachmentsVM.AddAttachment(attachment1);
             var attachment2 = new AttachmentViewModel();
-            attachment2.AttachmentThumbnail = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("https://picsum.photos/seed/second/260/200"));
+            attachment2.AttachmentThumbnail = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("https://picsum.photos/seed/second/400/300"));
             attachmentsVM.AddAttachment(attachment2);
             var attachment3 = new AttachmentViewModel();
-            attachment3.AttachmentThumbnail = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("https://picsum.photos/seed/third/260/200"));
+            attachment3.AttachmentThumbnail = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri("https://picsum.photos/seed/third/400/300"));
             attachmentsVM.AddAttachment(attachment3);
         }
 
