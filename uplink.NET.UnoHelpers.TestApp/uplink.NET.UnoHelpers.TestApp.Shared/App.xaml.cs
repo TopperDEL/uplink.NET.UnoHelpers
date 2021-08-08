@@ -111,6 +111,7 @@ namespace uplink.NET.UnoHelpers.TestApp
                     services.AddSingleton<ILoginService, LoginService>();
                     services.AddSingleton<IEventAggregator, EventAggregator>();
                     services.AddSingleton<IUploadQueueService, MockServices.UploadQueueServiceMock>();
+                    services.AddSingleton<IAttachmentSelectService, MockServices.AttachmentSelectServiceMock>();
 
                     UnoHelpers.Services.Initializer.Init(services.BuildServiceProvider(true), "UPLINK_NET_UNOHELPERS_SAMPLE");
 

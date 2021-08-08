@@ -10,17 +10,28 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <ListView ItemsSource="{Binding Content, Mode=TwoWay}" SelectionChanged="SelectionChanged" CanDragItems="True" CanReorderItems="True" AllowDrop="True"
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Button x:Name="AddButton" x:Uid="AddContent" Command="{Binding SelectNewContentAsyncCommand}" Content="Add..." HorizontalAlignment="Center"/>
+        </StackPanel>
+        <ListView Grid.Row="1"
+              ItemsSource="{Binding Content, Mode=TwoWay}" SelectionChanged="SelectionChanged" CanDragItems="True" CanReorderItems="True" AllowDrop="True"
               SelectionMode="None"
               HorizontalContentAlignment="Center" HorizontalAlignment="Center">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <Border BorderBrush="{Binding IsCover, Mode=OneWay, Converter={StaticResource TrueIsHiglightedConverter}, ConverterParameter={StaticResource StorjDefaultBrush}}" BorderThickness="2" CornerRadius="10" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Grid>
-                        <Image Source="{Binding AttachmentThumbnail, Mode=OneWay}" Stretch="UniformToFill"  VerticalAlignment="Center" MaxWidth="400" MaxHeight="300" MinWidth="100" MinHeight="75" HorizontalAlignment="Center"/>
-                    </Grid>
-                </Border>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="{Binding IsCover, Mode=OneWay, Converter={StaticResource TrueIsHiglightedConverter}, ConverterParameter={StaticResource StorjDefaultBrush}}" BorderThickness="2" CornerRadius="10" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Grid>
+                            <Image Source="{Binding AttachmentThumbnail, Mode=OneWay}" Stretch="UniformToFill"  VerticalAlignment="Center" MaxWidth="400" MaxHeight="300" MinWidth="100" MinHeight="75" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </UserControl>

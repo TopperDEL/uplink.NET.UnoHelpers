@@ -3,10 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
+using uplink.NET.UnoHelpers.Contracts.Interfaces;
 
 namespace uplink.NET.UnoHelpers.ViewModels
 {
     [ViewModel]
+    [Inject(typeof(IAttachmentSelectService))]
     public partial class AttachmentContainerViewModel
     {
         [Property] ObservableCollection<AttachmentViewModel> _content = new ObservableCollection<AttachmentViewModel>();
@@ -19,6 +22,16 @@ namespace uplink.NET.UnoHelpers.ViewModels
         private void Content_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             RefreshCover();
+        }
+
+        [Command]
+        public async Task SelectNewContentAsync()
+        {
+            var attachment = await AttachmentSelectService.GetAttachmentAsync();
+            var attachmentVm = new AttachmentViewModel();
+            attachmentVm.SetAttachment(attachment);
+
+            AddAttachment(attachmentVm);
         }
 
         public void AddAttachment(AttachmentViewModel attachment)

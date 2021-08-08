@@ -120,6 +120,9 @@
   <data name="AccessGrant.Header" xml:space="preserve">
     <value>Zugriffsschlüssel</value>
   </data>
+  <data name="AddContent.Content" xml:space="preserve">
+    <value>Hinzufügen...</value>
+  </data>
   <data name="ApiKey.Header" xml:space="preserve">
     <value>API Schlüssel</value>
   </data>
