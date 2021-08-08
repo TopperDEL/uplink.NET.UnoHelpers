@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using uplink.NET.UnoHelpers.Contracts.Interfaces;
 using uplink.NET.UnoHelpers.Contracts.Models;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace uplink.NET.UnoHelpers.ViewModels
 {
     [ViewModel(ModelType = typeof(Attachment))]
+    [Inject(typeof(IThumbnailGeneratorService))]
+    [ViewModelGenerateFactory]
     public partial class AttachmentViewModel
     {
         private static BitmapImage _placeholder;
@@ -31,8 +34,19 @@ namespace uplink.NET.UnoHelpers.ViewModels
         public async Task SetAttachmentAsync(Attachment attachment)
         {
             Model = attachment;
-            AttachmentThumbnail = new BitmapImage();
-            await AttachmentThumbnail.SetSourceAsync(Model.AttachmentData.AsRandomAccessStream());
+            Stream thumbnail = null;
+            if (attachment.MimeType.Contains("image"))
+            {
+                thumbnail = await ThumbnailGeneratorService.GenerateThumbnailFromImageAsync(attachment.AttachmentData, 400, 300);
+            }
+
+            if (thumbnail != null)
+            {
+                var bitmapImage = new BitmapImage();
+                await bitmapImage.SetSourceAsync(thumbnail.AsRandomAccessStream());
+
+                AttachmentThumbnail = bitmapImage;
+            }
 
             IsLoaded = true;
         }

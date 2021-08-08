@@ -10,6 +10,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
 {
     [ViewModel]
     [Inject(typeof(IAttachmentSelectService))]
+    [Inject(typeof(IAttachmentViewModelFactory))]
     public partial class AttachmentContainerViewModel
     {
         [Property] ObservableCollection<AttachmentViewModel> _content = new ObservableCollection<AttachmentViewModel>();
@@ -28,7 +29,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
         public async Task SelectNewContentAsync()
         {
             var attachment = await AttachmentSelectService.GetAttachmentAsync();
-            var attachmentVm = new AttachmentViewModel();
+            var attachmentVm = AttachmentViewModelFactory.Create();
             
             AddAttachment(attachmentVm);
 

@@ -107,8 +107,10 @@ namespace uplink.NET.UnoHelpers.TestApp
                     services.AddTransient<LoginViewModel>();
                     services.AddTransient<CurrentUploadsViewModel>();
                     services.AddSingleton<AttachmentContainerViewModel>();
+                    services.AddSingleton<IAttachmentViewModelFactory, AttachmentViewModelFactory>();
                     services.AddTransient<AttachmentViewModel>();
                     services.AddSingleton<ILoginService, LoginService>();
+                    services.AddSingleton<IThumbnailGeneratorService, ThumbnailGeneratorService>();
                     services.AddSingleton<IEventAggregator, EventAggregator>();
                     services.AddSingleton<IUploadQueueService, MockServices.UploadQueueServiceMock>();
                     services.AddSingleton<IAttachmentSelectService, MockServices.AttachmentSelectServiceMock>();

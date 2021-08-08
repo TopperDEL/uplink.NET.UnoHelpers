@@ -23,6 +23,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="MvvmGen" Version="1.1.1" />
+    <PackageReference Include="SkiaSharp" Version="2.80.3" />
     <PackageReference Include="Uno.UI" Version="3.9.1" />
     <PackageReference Include="uplink.NET" Version="2.7.1604" />
     <PackageReference Include="XamlFlair.Uno" Version="1.2.10" />
