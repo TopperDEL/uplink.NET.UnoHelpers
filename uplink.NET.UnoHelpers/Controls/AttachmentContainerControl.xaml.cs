@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using uplink.NET.UnoHelpers.Contracts.Models;
 using uplink.NET.UnoHelpers.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -42,6 +43,11 @@ namespace uplink.NET.UnoHelpers.Controls
                 var vm = added as AttachmentViewModel;
                 vm.IsSelected = true;
             }
+        }
+
+        public List<Attachment> GetAttachments()
+        {
+            return _viewModel.Content.Select(c=>c.GetModel()).ToList();
         }
     }
 }

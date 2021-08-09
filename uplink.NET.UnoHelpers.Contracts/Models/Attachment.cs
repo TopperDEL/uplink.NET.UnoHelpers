@@ -9,5 +9,6 @@ namespace uplink.NET.UnoHelpers.Contracts.Models
     {
         public Stream AttachmentData { get; set; }
         public string MimeType { get; set; }
+        public string Filename { get; set; }
     }
 }

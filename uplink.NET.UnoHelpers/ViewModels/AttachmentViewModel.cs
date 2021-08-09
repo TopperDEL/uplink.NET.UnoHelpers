@@ -49,6 +49,11 @@ namespace uplink.NET.UnoHelpers.ViewModels
             IsLoaded = true;
         }
 
+        public Attachment GetModel()
+        {
+            return Model;
+        }
+
         ~AttachmentViewModel()
         {
             if(_thumbnail != null)
