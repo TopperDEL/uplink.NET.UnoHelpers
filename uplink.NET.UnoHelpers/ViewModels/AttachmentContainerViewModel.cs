@@ -28,12 +28,15 @@ namespace uplink.NET.UnoHelpers.ViewModels
         [Command]
         public async Task SelectNewContentAsync()
         {
-            var attachment = await AttachmentSelectService.GetAttachmentAsync();
-            var attachmentVm = AttachmentViewModelFactory.Create();
-            
-            AddAttachment(attachmentVm);
+            var attachments = await AttachmentSelectService.GetAttachmentsAsync();
+            foreach (var attachment in attachments)
+            {
+                var attachmentVm = AttachmentViewModelFactory.Create();
 
-            await attachmentVm.SetAttachmentAsync(attachment);
+                AddAttachment(attachmentVm);
+
+                await attachmentVm.SetAttachmentAsync(attachment);
+            }
         }
 
         public void AddAttachment(AttachmentViewModel attachment)

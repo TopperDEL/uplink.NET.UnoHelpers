@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace uplink.NET.UnoHelpers.TestApp.MockServices
 {
     public class AttachmentSelectServiceMock : IAttachmentSelectService
     {
-        public async Task<Attachment> GetAttachmentAsync()
+        public async Task<List<Attachment>> GetAttachmentsAsync()
         {
             var guid = Guid.NewGuid().ToString();
             var myFilter = new Windows.Web.Http.Filters.HttpBaseProtocolFilter();
@@ -24,7 +25,7 @@ namespace uplink.NET.UnoHelpers.TestApp.MockServices
             attachment.MimeType = "image/jpeg";
             attachment.Filename = guid + ".jpg";
 
-            return attachment;
+            return new List<Attachment>() { attachment };
         }
     }
 }

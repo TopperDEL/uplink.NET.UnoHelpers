@@ -8,6 +8,6 @@ namespace uplink.NET.UnoHelpers.Contracts.Interfaces
 {
     public interface IAttachmentSelectService
     {
-        Task<Attachment> GetAttachmentAsync();
+        Task<List<Attachment>> GetAttachmentsAsync();
     }
 }
