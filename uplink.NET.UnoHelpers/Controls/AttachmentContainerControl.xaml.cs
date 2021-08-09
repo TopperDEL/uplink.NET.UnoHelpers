@@ -22,6 +22,7 @@ namespace uplink.NET.UnoHelpers.Controls
     public sealed partial class AttachmentContainerControl : UserControl
     {
         AttachmentContainerViewModel _viewModel;
+
         public AttachmentContainerControl()
         {
             this.InitializeComponent();

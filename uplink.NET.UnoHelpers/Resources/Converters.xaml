@@ -4,5 +4,5 @@
 
     <conv:TrueIsVisibleConverter x:Name="TrueIsVisibleConverter"/>
     <conv:FalseIsVisibleConverter x:Name="FalseIsVisibleConverter"/>
-    <conv:TrueIsHiglightedConverter x:Name="TrueIsHiglightedConverter"/>
+    <conv:TrueIsHighlightedConverter x:Name="TrueIsHighlightedConverter"/>
 </ResourceDictionary>

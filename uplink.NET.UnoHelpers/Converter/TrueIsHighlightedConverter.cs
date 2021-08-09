@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Media;
 
 namespace uplink.NET.UnoHelpers.Converter
 {
-    public class TrueIsHiglightedConverter : IValueConverter
+    public class TrueIsHighlightedConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
