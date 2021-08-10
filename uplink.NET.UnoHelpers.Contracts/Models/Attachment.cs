@@ -8,11 +8,11 @@ namespace uplink.NET.UnoHelpers.Contracts.Models
 {
     public class Attachment
     {
-        public Stream AttachmentData { get; set; }
+        public Stream AttachmentData { protected get; set; }
         public string MimeType { get; set; }
         public string Filename { get; set; }
 
-        public async Task<Stream> GetAttachmentStreamAsync()
+        public virtual async Task<Stream> GetAttachmentStreamAsync()
         {
             return AttachmentData;
         }

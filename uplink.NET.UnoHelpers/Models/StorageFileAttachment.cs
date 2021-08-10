@@ -12,7 +12,7 @@ namespace uplink.NET.UnoHelpers.Models
     {
         public StorageFile StorageFile { get; set; }
 
-        public new async Task<Stream> GetAttachmentStreamAsync()
+        public override async Task<Stream> GetAttachmentStreamAsync()
         {
             if (StorageFile != null)
             {

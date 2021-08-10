@@ -16,6 +16,10 @@ namespace uplink.NET.UnoHelpers.Services
                 new Func<Stream>(
                     delegate ()
                     {
+                        if(stream == null)
+                        {
+                            return GetPlaceHolderImageStream();
+                        }
                         if (mimeType.Contains("image"))
                         {
                             stream.Position = 0;
@@ -66,9 +70,8 @@ namespace uplink.NET.UnoHelpers.Services
 
         protected Stream GetPlaceHolderImageStream()
         {
-            MemoryStream mstream = new MemoryStream();
             //ToDo: Add generic placeholder-image size 400*300
-            return mstream;
+            return null;
         }
     }
 }
