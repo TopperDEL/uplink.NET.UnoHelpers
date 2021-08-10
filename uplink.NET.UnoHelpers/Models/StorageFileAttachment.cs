@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using uplink.NET.UnoHelpers.Contracts.Models;
 using Windows.Storage;
 
@@ -11,15 +12,15 @@ namespace uplink.NET.UnoHelpers.Models
     {
         public StorageFile StorageFile { get; set; }
 
-        public new Stream AttachmentData
+        public new async Task<Stream> GetAttachmentStreamAsync()
         {
-            get
+            if (StorageFile != null)
             {
-                return StorageFile?.OpenReadAsync().GetResults().AsStream();
+                return (await StorageFile.OpenReadAsync()).AsStream();
             }
-            set
+            else
             {
-
+                return AttachmentData;
             }
         }
     }

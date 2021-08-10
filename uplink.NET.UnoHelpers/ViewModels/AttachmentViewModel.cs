@@ -36,7 +36,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
         public async Task SetAttachmentAsync(Attachment attachment)
         {
             Model = attachment;
-            _thumbnail = await ThumbnailGeneratorService.GenerateThumbnailForStreamAsync(attachment.AttachmentData, attachment.MimeType, 400, 300);
+            _thumbnail = await ThumbnailGeneratorService.GenerateThumbnailForStreamAsync(await attachment.GetAttachmentStreamAsync(), attachment.MimeType, 400, 300);
 
             if (_thumbnail != null)
             {
