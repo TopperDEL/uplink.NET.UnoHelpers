@@ -18,7 +18,7 @@
         <Image Source="/Assets/StorjLogo.png" Grid.Row="0" MaxWidth="100" MaxHeight="100" xf:Animations.Primary="{StaticResource FadeIn}"/>
         <Pivot Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/LoginVia" Title="Login via" Foreground="{StaticResource StorjBlue}" MaxWidth="400">
             <PivotItem  x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/AccessGrant" Header="Access Grant">
-                <Grid>
+                <Grid MaxWidth="400">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>
                         <RowDefinition Height="60"/>
@@ -33,7 +33,7 @@
             </PivotItem>
 
             <PivotItem  x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/ApiKey" Header="API key">
-                <Grid>
+                <Grid MaxWidth="400">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>
                         <RowDefinition Height="60"/>
