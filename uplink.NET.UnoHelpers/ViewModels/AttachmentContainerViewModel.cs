@@ -1,16 +1,19 @@
 ﻿using MvvmGen;
+using MvvmGen.Events;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using uplink.NET.UnoHelpers.Contracts.Interfaces;
+using uplink.NET.UnoHelpers.Messages;
 
 namespace uplink.NET.UnoHelpers.ViewModels
 {
     [ViewModel]
     [Inject(typeof(IAttachmentSelectService))]
     [Inject(typeof(IAttachmentViewModelFactory))]
+    [Inject(typeof(IEventAggregator))]
     public partial class AttachmentContainerViewModel
     {
         [Property] ObservableCollection<AttachmentViewModel> _content = new ObservableCollection<AttachmentViewModel>();
@@ -42,6 +45,8 @@ namespace uplink.NET.UnoHelpers.ViewModels
         public void AddAttachment(AttachmentViewModel attachment)
         {
             Content.Add(attachment);
+
+            EventAggregator.Publish(new AttachmentAddedMessage());
         }
 
         private void RefreshCover()
