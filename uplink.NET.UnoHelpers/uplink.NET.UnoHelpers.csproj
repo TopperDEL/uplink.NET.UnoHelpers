@@ -8,7 +8,7 @@
     <TargetFrameworks>netstandard2.0;xamarinios10;xamarinmac20;MonoAndroid11.0;monoandroid10.0;uap10.0.18362</TargetFrameworks>
     <!-- Ensures the .xr.xml files are generated in a proper layout folder -->
     <GenerateLibraryLayout>true</GenerateLibraryLayout>
-    <Version>0.9.20</Version>
+    <Version>0.9.21</Version>
     <Authors>Tim Parth</Authors>
     <Company>Tim Parth</Company>
     <Description>This packages provides Helpers for working with Storj DCS via the uplink.NET-package in Uno Platform apps.</Description>
