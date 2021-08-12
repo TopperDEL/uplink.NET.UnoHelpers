@@ -80,7 +80,14 @@ namespace uplink.NET.UnoHelpers.Services
 
         private string Retrieve(string key)
         {
-            return _vault.Retrieve(Initializer._passwordResource, key)?.Password;
+            try
+            {
+                return _vault.Retrieve(Initializer._passwordResource, key)?.Password;
+            }
+            catch
+            {
+                return string.Empty;
+            }
         }
 
         private void AddIfNotEmpty(string key, string value)
