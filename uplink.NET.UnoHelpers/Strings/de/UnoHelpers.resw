@@ -162,7 +162,7 @@
   <data name="SecretVerify.Header" xml:space="preserve">
     <value>Passwort (zur Prüfung)</value>
   </data>
-  <data name="UploadInProgress.Text" xml:space="preserve">
-    <value>Wird hochgeladen...</value>
+  <data name="Upload.Text" xml:space="preserve">
+    <value>Übermittlung</value>
   </data>
 </root>

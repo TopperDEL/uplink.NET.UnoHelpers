@@ -94,12 +94,6 @@ namespace uplink.NET.UnoHelpers.ViewModels
             HasFailedUploads = UploadQueueEntries.Where(u => u.Failed).Count() > 0;
         }
 
-        [Command]
-        public void NavigateBack()
-        {
-            EventAggregator.Publish(new Messages.NavigateBackFromCurrentUploadsMessage());
-        }
-
         public void OnNavigatedAway()
         {
             UploadQueueService.UploadQueueChangedEvent -= UploadQueueService_UploadQueueChangedEvent;

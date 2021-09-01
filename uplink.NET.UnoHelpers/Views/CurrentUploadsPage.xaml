@@ -8,22 +8,15 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0" MaxWidth="400">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <CommandBar Grid.Row="0" Foreground="White" Background="{StaticResource StorjDefaultBrush}">
-            <AppBarButton x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Back" Icon="Back" Label="Back" Foreground="White" Command="{Binding NavigateBackCommand}"/>
-            <AppBarButton x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Refresh" Icon="Refresh" Label="Refresh" Foreground="White" Command="{Binding RefreshAsyncCommand}"/>
-            <CommandBar.Content>
-                <TextBlock x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Progress" Text="Progress" Margin="10" Foreground="White" FontWeight="Bold"/>
-            </CommandBar.Content>
-        </CommandBar>
-        <TextBlock Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/UploadInProgress" Text="Uploading..." Margin="5" HorizontalTextAlignment="Center" Visibility="{Binding HasCurrentUpload, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
+        <TextBlock Grid.Row="0" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Upload" Text="Uploads" FontFamily="Inter" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="34" FontWeight="ExtraBold" Foreground="Black" 
+                   Margin="25,20"/>
         <TextBlock Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/NoUploadInProgress" Text="No pending transfer" Margin="5" HorizontalTextAlignment="Center" Visibility="{Binding HasCurrentUpload, Converter={StaticResource FalseIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
-        <ListView Grid.Row="2" ItemsSource="{Binding UploadQueueEntries, Mode=OneWay}" Visibility="{Binding HasCurrentUpload, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}">
+        <ListView Grid.Row="1" ItemsSource="{Binding UploadQueueEntries, Mode=OneWay}" Visibility="{Binding HasCurrentUpload, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
@@ -31,23 +24,44 @@
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid MaxWidth="400" Margin="5">
+                    <Grid MaxWidth="400" Margin="10">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="55"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition MaxWidth="80"/>
+                            <ColumnDefinition MaxWidth="40"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <Button Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Command="{Binding RetryAsyncCommand}" Visibility="{Binding Failed, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"
-                                Background="White">
+                        <Grid Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" MaxHeight="70">
+                            <Image Source="/Assets/File.png" Margin="5,0,0,5"/>
+                            <Border BorderThickness="2" BorderBrush="#60C87D"
+                                    CornerRadius="2" Background="#60C87D" MinWidth="35" Height="20" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                                <TextBlock Text="JPG" Foreground="White" HorizontalAlignment="Center" 
+                                           FontFamily="Inter" FontSize="12"/>
+                            </Border>
+                        </Grid>
+
+                        <TextBlock Text="{Binding Identifier}" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1"
+                                   FontFamily="Inter" FontWeight="Medium"
+                                   VerticalAlignment="Center" Margin="10,0,0,0"/>
+                        <TextBlock Text="{Binding TotalBytes, Converter={StaticResource BytesToHumanConverter}}" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1"
+                                   FontFamily="Inter" FontWeight="Medium" 
+                                   VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <Button Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Background="Transparent" Foreground="#8A92A8"
+                                FontFamily="Inter"  FontWeight="Medium"
+                                VerticalAlignment="Center" HorizontalAlignment="Right"
+                                Command="{Binding RetryAsyncCommand}" Visibility="{Binding Failed, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}">
                             <SymbolIcon Symbol="Refresh" Foreground="{StaticResource StorjDefaultBrush}"/>
                         </Button>
-                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Identifier}" TextWrapping="WrapWholeWords"/>
-                        <ProgressBar Grid.Row="1" Grid.Column="1" Maximum="{Binding TotalBytes}" Value="{Binding BytesCompleted, Mode=TwoWay}" Foreground="{StaticResource StorjDefaultBrush}" Visibility="{Binding Failed, Converter={StaticResource FalseIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding FailedMessage, Mode=TwoWay}" TextWrapping="WrapWholeWords" Foreground="{StaticResource FailedBrush}" Visibility="{Binding Failed, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
+
+                        <ProgressBar Maximum="{Binding TotalBytes}" Value="{Binding BytesCompleted, Mode=TwoWay}" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="1" Margin="10,0,10,20"
+                                     Foreground="{StaticResource StorjDefaultBrush}" Visibility="{Binding Failed, Converter={StaticResource FalseIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
+                        <TextBlock Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="1" Text="{Binding FailedMessage, Mode=TwoWay}" TextWrapping="WrapWholeWords" Foreground="{StaticResource FailedBrush}" Visibility="{Binding Failed, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"
+                                   Margin="10,0,10,20"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using uplink.NET.Interfaces;
 using uplink.NET.Models;
+using System.Linq;
 
 namespace uplink.NET.UnoHelpers.ViewModels
 {
@@ -19,6 +20,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
         [Property] private int _totalBytes;
         [Property] private bool _failed;
         [Property] private string _failedMessage;
+        [Property] private string _fileExtension;
 
         public void Load(UploadQueueEntry entry)
         {
@@ -29,6 +31,14 @@ namespace uplink.NET.UnoHelpers.ViewModels
             FailedMessage = entry.FailedMessage;
             BytesCompleted = entry.BytesCompleted;
             TotalBytes = entry.TotalBytes;
+            if (entry.Identifier != null && entry.Identifier.Contains("."))
+            {
+                FileExtension = entry.Identifier.Split(new[] { '.' }).Last().ToUpperInvariant();
+            }
+            else
+            {
+                FileExtension = "OBJ";
+            }
         }
 
         [Command]

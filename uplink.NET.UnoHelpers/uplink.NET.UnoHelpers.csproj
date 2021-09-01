@@ -38,6 +38,7 @@
     <UpToDateCheckInput Include="**\*.xaml" Exclude="bin\**\*.xaml;obj\**\*.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Assets\File.png" />
     <None Remove="Assets\StorjLogo.png" />
     <None Remove="Assets\White.png" />
     <None Remove="Controls\AttachmentContainerControl.xaml" />
@@ -56,6 +57,9 @@
     <UpToDateCheckInput Remove="Views\LoginPage.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\File.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\StorjLogo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -26,7 +26,7 @@ namespace uplink.NET.UnoHelpers.TestApp.MockServices
             _entries = new List<UploadQueueEntry>();
             _firstOne = new UploadQueueEntry { Id = _currentId++, Identifier = "Photo1.jpg", TotalBytes = 1024 * 100, BytesCompleted = 0 };
             _entries.Add(_firstOne);
-            _secondOne = new UploadQueueEntry { Id = _currentId++, Identifier = "Photo2.jpg", TotalBytes = 1024 * 200, BytesCompleted = 0 };
+            _secondOne = new UploadQueueEntry { Id = _currentId++, Identifier = "Photo2.jpg", TotalBytes = 1024 * 275, BytesCompleted = 0 };
             _entries.Add(_secondOne);
             _entries.Add(new UploadQueueEntry { Id = _currentId++, Identifier = "Photo3.jpg", TotalBytes = 1024 * 200, Failed = true, FailedMessage = "Network error, please try again. This error is long and contains more lines. Lines with infos about the error. That just happened - out of a sudden." });
 
@@ -62,9 +62,9 @@ namespace uplink.NET.UnoHelpers.TestApp.MockServices
                     UploadQueueChangedEvent?.Invoke(QueueChangeType.EntryRemoved, _firstOne);
                 }
 
-                if(_maxTimer > 15)
+                if (_maxTimer > 15)
                 {
-                    foreach(var entry in _entries)
+                    foreach (var entry in _entries)
                     {
                         UploadQueueChangedEvent?.Invoke(QueueChangeType.EntryRemoved, entry);
                     }
