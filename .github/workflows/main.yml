@@ -16,8 +16,12 @@ jobs:
     - name: Restore NuGet Packages
       run: nuget restore
     - name: Build
-      run: msbuild /p:Configuration=Nuget /t:Rebuild
+      run: msbuild /p:Configuration=Nuget /t:Rebuild /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
     - name: Nuget Push Helpers
-      run: nuget push D:\a\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\bin\Nuget\uplink.NET.UnoHelpers.0.9.24.nupkg -ApiKey ${{secrets.NUGET_API_KEY}} -Symbols -Source https://api.nuget.org/v3/index.json
+      run: nuget push D:\a\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\bin\Nuget\uplink.NET.UnoHelpers.0.9.24.nupkg -ApiKey ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
     - name: Nuget Push Contracts
-      run: nuget push D:\a\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers.Contracts\bin\Nuget\uplink.NET.UnoHelpers.Contracts.0.9.24.nupkg -ApiKey ${{secrets.NUGET_API_KEY}} -Symbols -Source https://api.nuget.org/v3/index.json
+      run: nuget push D:\a\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers.Contracts\bin\Nuget\uplink.NET.UnoHelpers.Contracts.0.9.24.nupkg -ApiKey ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
+    - name: Nuget Push Helpers Symbols
+      run: nuget push D:\a\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\bin\Nuget\uplink.NET.UnoHelpers.0.9.24.snupkg -ApiKey ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
+    - name: Nuget Push Contracts Symbols
+      run: nuget push D:\a\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers\uplink.NET.UnoHelpers.Contracts\bin\Nuget\uplink.NET.UnoHelpers.Contracts.0.9.24.snupkg -ApiKey ${{secrets.NUGET_API_KEY}} -Source https://api.nuget.org/v3/index.json
