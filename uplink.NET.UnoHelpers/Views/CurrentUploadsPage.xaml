@@ -40,7 +40,7 @@
                             <Image Source="/Assets/File.png" Margin="5,0,0,5"/>
                             <Border BorderThickness="2" BorderBrush="#60C87D"
                                     CornerRadius="2" Background="#60C87D" MinWidth="35" Height="20" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                                <TextBlock Text="JPG" Foreground="White" HorizontalAlignment="Center" 
+                                <TextBlock Text="{Binding FileExtension}" Foreground="White" HorizontalAlignment="Center" 
                                            FontFamily="Inter" FontSize="12"/>
                             </Border>
                         </Grid>
