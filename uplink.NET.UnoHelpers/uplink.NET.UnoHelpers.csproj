@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\File.png" />
+    <None Remove="Assets\HorizontalDots.png" />
     <None Remove="Assets\StorjLogo.png" />
     <None Remove="Assets\White.png" />
     <None Remove="Controls\AttachmentContainerControl.xaml" />
@@ -58,6 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\File.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\HorizontalDots.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\StorjLogo.png">

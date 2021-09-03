@@ -11,29 +11,19 @@
     d:DesignWidth="400">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <StackPanel Grid.Row="0">
-            <Button x:Name="AddButton" x:Uid="AddContent" Command="{Binding SelectNewContentAsyncCommand}" Content="Add..." HorizontalAlignment="Center"/>
-        </StackPanel>
-        <ListView Grid.Row="1"
-              ItemsSource="{Binding Content, Mode=TwoWay}" SelectionChanged="SelectionChanged" CanDragItems="True" CanReorderItems="True" AllowDrop="True"
-              SelectionMode="None"
-              HorizontalContentAlignment="Center" HorizontalAlignment="Center">
-            <ListView.ItemTemplate>
+        <GridView ItemsSource="{Binding Content, Mode=TwoWay}"
+                  HorizontalContentAlignment="Center" HorizontalAlignment="Center">
+            <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="{Binding IsCover, Mode=OneWay, Converter={StaticResource TrueIsHighlightedConverter}, ConverterParameter={StaticResource StorjDefaultBrush}}" BorderThickness="2" CornerRadius="10"
-                            Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Grid>
-                            <Image Source="{Binding AttachmentThumbnail, Mode=OneWay}" Stretch="UniformToFill"  VerticalAlignment="Center" MaxWidth="400" MaxHeight="300" MinWidth="100" MinHeight="75" HorizontalAlignment="Center"/>
-                            <ProgressRing Visibility="{Binding IsLoaded, Converter={StaticResource FalseIsVisibleConverter}}" IsActive="True" Foreground="{StaticResource StorjDefaultBrush}"/>
-                        </Grid>
-                    </Border>
+                    <StackPanel>
+                        <Image Source="{Binding AttachmentThumbnail, Mode=OneWay}" Stretch="UniformToFill"  VerticalAlignment="Center" MaxWidth="200" MaxHeight="200" MinWidth="100" MinHeight="75" HorizontalAlignment="Center"/>
+
+                        <Button Background="White" HorizontalAlignment="Center">
+                            <Image Source="/Assets/HorizontalDots.png" Width="17" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Button>
+                    </StackPanel>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </GridView.ItemTemplate>
+        </GridView>
     </Grid>
 </UserControl>

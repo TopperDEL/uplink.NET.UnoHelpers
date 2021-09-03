@@ -41,6 +41,11 @@ namespace uplink.NET.UnoHelpers.TestApp
             NavigateToCurrentUploadsPage();
         }
 
+        private async void AddAttachment_Click(object sender, RoutedEventArgs e)
+        {
+            await ((AttachmentContainerViewModel)AttachmentContainer.DataContext).SelectNewContentAsync();
+        }
+
         private void NavigateToCurrentUploadsPage()
         {
             this.Frame.Navigate(typeof(UnoHelpers.Views.CurrentUploadsPage));

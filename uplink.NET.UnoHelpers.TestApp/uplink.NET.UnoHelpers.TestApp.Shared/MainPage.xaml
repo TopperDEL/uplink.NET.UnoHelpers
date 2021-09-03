@@ -13,13 +13,15 @@
             <RowDefinition Height="80"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 		<TextBlock Grid.Row="0" Text="Uno-Helpers test app" Margin="20" FontSize="30" />
         <Button Grid.Row="1" Content="Login-Page" Click="LoginPage_Click"/>
         <Button Grid.Row="2" Content="Current Uploads-Page" Click="CurrentUploadsPage_Click"/>
-        <ctrls:AttachmentContainerControl Grid.Row="3" x:Name="AttachmentContainer"/>
-        <ctrls:CurrentUploadsButton Grid.Row="4" x:Name="CurrentUploads"/>
+        <Button Grid.Row="3" Content="Add attachment" Click="AddAttachment_Click"/>
+        <ctrls:AttachmentContainerControl Grid.Row="4" x:Name="AttachmentContainer"/>
+        <ctrls:CurrentUploadsButton Grid.Row="5" x:Name="CurrentUploads"/>
     </Grid>
 </Page>

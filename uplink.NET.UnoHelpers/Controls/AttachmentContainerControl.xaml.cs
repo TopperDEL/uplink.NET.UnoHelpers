@@ -29,23 +29,6 @@ namespace uplink.NET.UnoHelpers.Controls
             DataContext = _viewModel = (AttachmentContainerViewModel)Services.Initializer.GetServiceProvider().GetService(typeof(AttachmentContainerViewModel));
         }
 
-        private void SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var removed = e.RemovedItems.FirstOrDefault();
-            if (removed != null && removed is AttachmentViewModel)
-            {
-                var vm = removed as AttachmentViewModel;
-                vm.IsSelected = false;
-            }
-
-            var added = e.AddedItems.FirstOrDefault();
-            if (added != null && added is AttachmentViewModel)
-            {
-                var vm = added as AttachmentViewModel;
-                vm.IsSelected = true;
-            }
-        }
-
         public List<Attachment> GetAttachments()
         {
             return _viewModel.Content.Select(c=>c.GetModel()).ToList();
