@@ -36,9 +36,9 @@ namespace uplink.NET.UnoHelpers.ViewModels
             {
                 var attachmentVm = AttachmentViewModelFactory.Create();
 
-                AddAttachment(attachmentVm);
-
                 await attachmentVm.SetAttachmentAsync(attachment);
+
+                AddAttachment(attachmentVm);
             }
         }
 
