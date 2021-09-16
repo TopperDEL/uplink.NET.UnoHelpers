@@ -22,41 +22,48 @@ namespace uplink.NET.UnoHelpers.Services
                         }
                         if (mimeType.Contains("image"))
                         {
-                            stream.Position = 0;
-                            using (SKBitmap sourceBitmap = SKBitmap.Decode(stream))
+                            try
                             {
-                                SKImageInfo resizeInfo = new SKImageInfo(targetWidth, targetHeight);//, info.ColorType, info.AlphaType, info.ColorSpace);
-
-                                // Test whether there is more room in width or height
-                                if (Math.Abs(sourceBitmap.Width - targetWidth) > Math.Abs(sourceBitmap.Height - targetHeight))
+                                stream.Position = 0;
+                                using (SKBitmap sourceBitmap = SKBitmap.Decode(stream))
                                 {
-                                    // More room in width, so leave image width set to canvas width
-                                    // and increase/decrease height by same ratio
-                                    double widthRatio = (double)targetWidth / (double)sourceBitmap.Width;
-                                    int newHeight = (int)Math.Floor(sourceBitmap.Height * widthRatio);
+                                    SKImageInfo resizeInfo = new SKImageInfo(targetWidth, targetHeight);//, info.ColorType, info.AlphaType, info.ColorSpace);
 
-                                    resizeInfo.Height = newHeight;
-                                }
-                                else
-                                {
-                                    // More room in height, so leave image height set to canvas height
-                                    // and increase/decrease width by same ratio                 
-                                    double heightRatio = (double)targetHeight / (double)sourceBitmap.Height;
-                                    int newWidth = (int)Math.Floor(sourceBitmap.Width * heightRatio);
-
-                                    resizeInfo.Width = newWidth;
-                                }
-
-                                using (SKBitmap scaledBitmap = sourceBitmap.Resize(resizeInfo, SKFilterQuality.High))
-                                {
-                                    using (SKImage scaledImage = SKImage.FromBitmap(scaledBitmap))
+                                    // Test whether there is more room in width or height
+                                    if (Math.Abs(sourceBitmap.Width - targetWidth) > Math.Abs(sourceBitmap.Height - targetHeight))
                                     {
-                                        using (SKData data = scaledImage.Encode())
+                                        // More room in width, so leave image width set to canvas width
+                                        // and increase/decrease height by same ratio
+                                        double widthRatio = (double)targetWidth / (double)sourceBitmap.Width;
+                                        int newHeight = (int)Math.Floor(sourceBitmap.Height * widthRatio);
+
+                                        resizeInfo.Height = newHeight;
+                                    }
+                                    else
+                                    {
+                                        // More room in height, so leave image height set to canvas height
+                                        // and increase/decrease width by same ratio                 
+                                        double heightRatio = (double)targetHeight / (double)sourceBitmap.Height;
+                                        int newWidth = (int)Math.Floor(sourceBitmap.Width * heightRatio);
+
+                                        resizeInfo.Width = newWidth;
+                                    }
+
+                                    using (SKBitmap scaledBitmap = sourceBitmap.Resize(resizeInfo, SKFilterQuality.High))
+                                    {
+                                        using (SKImage scaledImage = SKImage.FromBitmap(scaledBitmap))
                                         {
-                                            return new MemoryStream(data.ToArray());
+                                            using (SKData data = scaledImage.Encode())
+                                            {
+                                                return new MemoryStream(data.ToArray());
+                                            }
                                         }
                                     }
                                 }
+                            }
+                            catch
+                            {
+                                return GetPlaceHolderImageStream();
                             }
                         }
                         else
