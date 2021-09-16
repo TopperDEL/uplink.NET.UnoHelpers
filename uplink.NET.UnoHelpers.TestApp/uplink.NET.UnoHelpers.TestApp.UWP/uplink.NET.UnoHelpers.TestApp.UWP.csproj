@@ -14,13 +14,10 @@
     <PackageReference Include="MvvmGen">
       <Version>1.1.1</Version>
     </PackageReference>
-    <PackageReference Include="Uno.Core" Version="2.4.0" />
-    <PackageReference Include="Uno.UI" Version="3.9.1" />
+    <PackageReference Include="Uno.Core" Version="3.0.0" />
+    <PackageReference Include="Uno.UI" Version="3.11.0-dev.29" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
-    <PackageReference Include="XamlFlair.Uno">
-      <Version>1.2.10</Version>
-    </PackageReference>
   </ItemGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -37,7 +34,10 @@
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>uplink.NET.UnoHelpers.TestApp.Uwp_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>
+    </PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>014D095B9C2969E028D2FAA7C581633E75B5A6D6</PackageCertificateThumbprint>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>

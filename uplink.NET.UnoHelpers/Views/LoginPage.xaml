@@ -5,7 +5,6 @@
     xmlns:local="using:uplink.NET.UnoHelpers.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:xf="using:XamlFlair"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -15,7 +14,7 @@
             <RowDefinition Height="400"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Image Source="/Assets/StorjLogo.png" Grid.Row="0" MaxWidth="100" MaxHeight="100" xf:Animations.Primary="{StaticResource FadeIn}"/>
+        <Image Source="/Assets/StorjLogo.png" Grid.Row="0" MaxWidth="100" MaxHeight="100"/>
         <Pivot Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/LoginVia" Title="Login via" Foreground="{StaticResource StorjBlue}" MaxWidth="400">
             <PivotItem  x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/AccessGrant" Header="Access Grant">
                 <Grid MaxWidth="400">
