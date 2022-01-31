@@ -74,8 +74,8 @@
     <PackageReference Include="MvvmGen">
       <Version>1.1.1</Version>
     </PackageReference>
-    <PackageReference Include="Uno.UI" Version="3.11.0-dev.29" />
-    <PackageReference Include="Uno.UI.RemoteControl" Version="3.10.7" Condition="'$(Configuration)'=='Debug'" />
+    <PackageReference Include="Uno.UI" Version="4.0.13" />
+    <PackageReference Include="Uno.UI.RemoteControl" Version="4.0.13" Condition="'$(Configuration)'=='Debug'" />
     <PackageReference Include="Uno.UniversalImageLoader" Version="1.9.35" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
