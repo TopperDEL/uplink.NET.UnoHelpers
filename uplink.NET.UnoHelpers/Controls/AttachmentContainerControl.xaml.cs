@@ -33,5 +33,10 @@ namespace uplink.NET.UnoHelpers.Controls
         {
             return _viewModel.Content.Select(c=>c.GetModel()).ToList();
         }
+
+        public void ClearAttachments()
+        {
+            _viewModel.Content.Clear();
+        }
     }
 }
