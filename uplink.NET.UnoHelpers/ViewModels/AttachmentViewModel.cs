@@ -49,6 +49,14 @@ namespace uplink.NET.UnoHelpers.ViewModels
             IsLoaded = true;
         }
 
+        public void SetAttachmentFromURL(Attachment attachment, Uri uri)
+        {
+            Model = attachment;
+            AttachmentThumbnail = new BitmapImage(uri);
+
+            IsLoaded = true;
+        }
+
         public Attachment GetModel()
         {
             return Model;
