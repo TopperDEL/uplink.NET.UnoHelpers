@@ -40,6 +40,10 @@ namespace uplink.NET.UnoHelpers.ViewModels
 
                 AddAttachment(attachmentVm);
             }
+            if(attachments.Count > 0)
+            {
+                EventAggregator.Publish(new AttachmentAddingFinishedMessage());
+            }
         }
 
         public void AddAttachment(AttachmentViewModel attachment)
