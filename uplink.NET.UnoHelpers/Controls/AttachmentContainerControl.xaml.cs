@@ -23,6 +23,27 @@ namespace uplink.NET.UnoHelpers.Controls
     {
         AttachmentContainerViewModel _viewModel;
 
+        public bool CanSetAttachmentAsCover
+        {
+            get { return (bool)GetValue(CanSetAttachmentAsCoverProperty); }
+            set { SetValue(CanSetAttachmentAsCoverProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for CanSetAttachmentAsCover.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CanSetAttachmentAsCoverProperty =
+            DependencyProperty.Register("CanSetAttachmentAsCover", typeof(bool), typeof(AttachmentContainerControl), new PropertyMetadata(null));
+
+        public bool CanDeleteAttachment
+        {
+            get { return (bool)GetValue(CanDeleteAttachmentProperty); }
+            set { SetValue(CanDeleteAttachmentProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for CanSetAttachmentAsCover.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CanDeleteAttachmentProperty =
+            DependencyProperty.Register("CanDeleteAttachment", typeof(bool), typeof(AttachmentContainerControl), new PropertyMetadata(null));
+
+
         public AttachmentContainerControl()
         {
             this.InitializeComponent();

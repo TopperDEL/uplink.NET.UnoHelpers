@@ -132,7 +132,7 @@
   <data name="BucketName.Header" xml:space="preserve">
     <value>Basispfad (bucket)</value>
   </data>
-  <data name="DeleteImage.Text" xml:space="preserve">
+  <data name="DeleteAttachment.Text" xml:space="preserve">
     <value>Löschen</value>
   </data>
   <data name="HaveNoAccount.Text" xml:space="preserve">
@@ -164,6 +164,9 @@
   </data>
   <data name="SecretVerify.Header" xml:space="preserve">
     <value>Passwort (zur Prüfung)</value>
+  </data>
+  <data name="SetAttachmentAsCover.Text" xml:space="preserve">
+    <value>Als Cover verwenden</value>
   </data>
   <data name="Upload.Text" xml:space="preserve">
     <value>Übermittlungen</value>

@@ -8,7 +8,7 @@
     xmlns:viewmodels="clr-namespace:uplink.NET.UnoHelpers.ViewModels"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignWidth="400" x:Name="AttachmentContainer">
 
     <Grid>
         <GridView ItemsSource="{Binding Content, Mode=TwoWay}"
@@ -21,7 +21,10 @@
                         <Button Background="White" HorizontalAlignment="Center">
                             <Button.Flyout>
                                 <MenuFlyout>
-                                    <MenuFlyoutItem x:Uid="DeleteImage" Text="Delete" Command="{Binding DeleteImageAsyncCommand}"/>
+                                    <MenuFlyoutItem x:Uid="DeleteAttachment" Text="Delete" Command="{Binding DeleteAttachmentAsyncCommand}"
+                                                    Visibility="{Binding CanDeleteAttachment, Converter={StaticResource TrueIsVisibleConverter}, ElementName=AttachmentContainer}"/>
+                                    <MenuFlyoutItem x:Uid="SetAttachmentAsCover" Text="Set as cover" Command="{Binding SetAttachmentAsCoverAsyncCommand}"
+                                                    Visibility="{Binding CanSetAttachmentAsCover, Converter={StaticResource TrueIsVisibleConverter}, ElementName=AttachmentContainer}"/>
                                 </MenuFlyout>
                             </Button.Flyout>
                             <Image Source="/Assets/HorizontalDots.png" Width="17" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>

@@ -66,9 +66,15 @@ namespace uplink.NET.UnoHelpers.ViewModels
         }
 
         [Command]
-        public async Task DeleteImageAsync()
+        public async Task DeleteAttachmentAsync()
         {
             EventAggregator.Publish(new AttachmentDeletedMessage(Model));
+        }
+
+        [Command]
+        public async Task SetAttachmentAsCoverAsync()
+        {
+            EventAggregator.Publish(new AttachmentSetAsCoverMessage(Model));
         }
 
         ~AttachmentViewModel()
