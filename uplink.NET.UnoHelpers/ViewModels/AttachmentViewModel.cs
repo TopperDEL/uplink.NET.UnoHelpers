@@ -1,4 +1,5 @@
 ﻿using MvvmGen;
+using MvvmGen.Events;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,12 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using uplink.NET.UnoHelpers.Contracts.Interfaces;
 using uplink.NET.UnoHelpers.Contracts.Models;
+using uplink.NET.UnoHelpers.Messages;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace uplink.NET.UnoHelpers.ViewModels
 {
     [ViewModel(ModelType = typeof(Attachment))]
     [Inject(typeof(IThumbnailGeneratorService))]
+    [Inject(typeof(IEventAggregator))]
     [ViewModelGenerateFactory]
     public partial class AttachmentViewModel
     {
@@ -60,6 +63,12 @@ namespace uplink.NET.UnoHelpers.ViewModels
         public Attachment GetModel()
         {
             return Model;
+        }
+
+        [Command]
+        public async Task DeleteImageAsync()
+        {
+            EventAggregator.Publish(new AttachmentDeletedMessage(Model));
         }
 
         ~AttachmentViewModel()

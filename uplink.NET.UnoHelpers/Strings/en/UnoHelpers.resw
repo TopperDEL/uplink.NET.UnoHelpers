@@ -132,6 +132,9 @@
   <data name="BucketName.Header" xml:space="preserve">
     <value>Bucket name</value>
   </data>
+  <data name="DeleteImage.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="HaveNoAccount.Text" xml:space="preserve">
     <value>Have no account yet? </value>
   </data>

@@ -132,6 +132,9 @@
   <data name="BucketName.Header" xml:space="preserve">
     <value>Basispfad (bucket)</value>
   </data>
+  <data name="DeleteImage.Text" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
   <data name="HaveNoAccount.Text" xml:space="preserve">
     <value>Noch kein Account? </value>
   </data>

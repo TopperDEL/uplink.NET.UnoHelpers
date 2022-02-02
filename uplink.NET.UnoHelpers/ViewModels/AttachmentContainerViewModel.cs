@@ -14,7 +14,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
     [Inject(typeof(IAttachmentSelectService))]
     [Inject(typeof(IAttachmentViewModelFactory))]
     [Inject(typeof(IEventAggregator))]
-    public partial class AttachmentContainerViewModel
+    public partial class AttachmentContainerViewModel : IEventSubscriber<AttachmentDeletedMessage>
     {
         [Property] ObservableCollection<AttachmentViewModel> _content = new ObservableCollection<AttachmentViewModel>();
 
@@ -67,6 +67,18 @@ namespace uplink.NET.UnoHelpers.ViewModels
                     attachment.IsCover = false;
                 }
                 index++;
+            }
+        }
+
+        public void OnEvent(AttachmentDeletedMessage eventData)
+        {
+            foreach(var cont in Content)
+            {
+                if(cont.Filename == eventData.DeletedAttachment.Filename)
+                {
+                    Content.Remove(cont);
+                    return;
+                }
             }
         }
     }
