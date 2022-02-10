@@ -21,9 +21,9 @@
                         <Button Background="White" HorizontalAlignment="Center">
                             <Button.Flyout>
                                 <MenuFlyout>
-                                    <MenuFlyoutItem x:Uid="DeleteAttachment" Text="Delete" Command="{Binding DeleteAttachmentAsyncCommand}"
+                                    <MenuFlyoutItem Text="{Binding Texts.DeleteAttachment_Text}" Command="{Binding DeleteAttachmentAsyncCommand}"
                                                     Visibility="{Binding CanDeleteAttachment, Converter={StaticResource TrueIsVisibleConverter}, ElementName=AttachmentContainer}"/>
-                                    <MenuFlyoutItem x:Uid="SetAttachmentAsCover" Text="Set as cover" Command="{Binding SetAttachmentAsCoverAsyncCommand}"
+                                    <MenuFlyoutItem Text="{Binding Texts.SetAttachmentAsCover_Text}" Command="{Binding SetAttachmentAsCoverAsyncCommand}"
                                                     Visibility="{Binding CanSetAttachmentAsCover, Converter={StaticResource TrueIsVisibleConverter}, ElementName=AttachmentContainer}"/>
                                 </MenuFlyout>
                             </Button.Flyout>

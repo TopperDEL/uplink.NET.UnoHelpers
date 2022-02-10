@@ -13,6 +13,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
 {
     [Inject(typeof(ILoginService))]
     [Inject(typeof(IEventAggregator))]
+    [Inject(typeof(LocalizedUnoHelpersTextViewModel))]
     [ViewModel]
     public partial class LoginViewModel
     {
@@ -23,6 +24,12 @@ namespace uplink.NET.UnoHelpers.ViewModels
         [Property] private string _apiKey;
         [Property] private string _secret;
         [Property] private string _secretVerify;
+        [Property] private LocalizedUnoHelpersTextViewModel _texts;
+
+        partial void OnInitialize()
+        {
+            Texts = LocalizedUnoHelpersTextViewModel;
+        }
 
         [Command]
         private void Login()

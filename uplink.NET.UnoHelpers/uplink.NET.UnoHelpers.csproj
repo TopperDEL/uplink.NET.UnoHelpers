@@ -77,12 +77,6 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-		<PRIResource Include="$(MSBuildThisFileDirectory)Strings\de\UnoHelpers.resw" />
-	</ItemGroup>
-	<ItemGroup>
-		<PRIResource Include="$(MSBuildThisFileDirectory)Strings\en\UnoHelpers.resw" />
-	</ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\uplink.NET.UnoHelpers.Contracts\uplink.NET.UnoHelpers.Contracts.csproj" />
   </ItemGroup>
 </Project>

@@ -106,6 +106,7 @@ namespace uplink.NET.UnoHelpers.TestApp
                     var services = new ServiceCollection();
                     services.AddTransient<LoginViewModel>();
                     services.AddTransient<CurrentUploadsViewModel>();
+                    services.AddSingleton<LocalizedUnoHelpersTextViewModel>();
                     services.AddSingleton<AttachmentContainerViewModel>();
                     services.AddSingleton<IAttachmentViewModelFactory, AttachmentViewModelFactory>();
                     services.AddTransient<AttachmentViewModel>();

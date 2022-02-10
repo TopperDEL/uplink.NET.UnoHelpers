@@ -15,8 +15,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Image Source="/Assets/StorjLogo.png" Grid.Row="0" MaxWidth="100" MaxHeight="100"/>
-        <Pivot Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/LoginVia" Title="Login via" Foreground="{StaticResource StorjBlue}" MaxWidth="400">
-            <PivotItem  x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/AccessGrant" Header="Access Grant">
+        <Pivot Grid.Row="1" Title="{Binding Texts.LoginVia_Title}" Foreground="{StaticResource StorjBlue}" MaxWidth="400">
+            <PivotItem Header="{Binding Texts.AccessGrant_Header}">
                 <Grid MaxWidth="400">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>
@@ -24,14 +24,14 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <TextBox Grid.Row="0" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/AccessGrant" Text="{Binding AccessGrant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Access grant" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
-                    <TextBox Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/BucketName" Text="{Binding BucketName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Bucket name" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"
+                    <TextBox Grid.Row="0" Header="{Binding Texts.AccessGrant_Header}" Text="{Binding AccessGrant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
+                    <TextBox Grid.Row="1" Header="{Binding Texts.BucketName_Header}" Text="{Binding BucketName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"
                              TextChanging="TextBox_TextChanging" KeyDown="TextBox_KeyDown_CheckEnter"/>
-                    <Button Grid.Row="2" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/LoginButton" Command="{Binding LoginCommand}" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource StorjDefaultBrush}" Foreground="White" CornerRadius="5"/>
+                    <Button Grid.Row="2" Command="{Binding LoginCommand}" Content="{Binding Texts.LoginButton_Content}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource StorjDefaultBrush}" Foreground="White" CornerRadius="5"/>
                 </Grid>
             </PivotItem>
 
-            <PivotItem  x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/ApiKey" Header="API key">
+            <PivotItem Header="{Binding Texts.ApiKey_Header}">
                 <Grid MaxWidth="400">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>
@@ -41,18 +41,18 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <TextBox Grid.Row="0" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/SatelliteAddress" Text="{Binding SatelliteAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Satellite Address" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
-                    <TextBox Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/ApiKey" Text="{Binding ApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Api-Key" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
-                    <PasswordBox Grid.Row="2" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Secret" Password="{Binding Secret, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Secret" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
-                    <PasswordBox Grid.Row="3" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/SecretVerify" Password="{Binding SecretVerify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Secret verify" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"
+                    <TextBox Grid.Row="0" Text="{Binding SatelliteAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="{Binding Texts.SatelliteAddress_Header}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
+                    <TextBox Grid.Row="1" Text="{Binding ApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="{Binding Texts.ApiKey_Header}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
+                    <PasswordBox Grid.Row="2" Password="{Binding Secret, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="{Binding Texts.Secret_Header}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
+                    <PasswordBox Grid.Row="3" Password="{Binding SecretVerify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="{Binding Texts.SecretsVerify_Header}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"
                                  KeyDown="TextBox_KeyDown_CheckEnter"/>
                     <!--<TextBlock x:Uid="SecretAndVerifyNotMatch" Text="Secret and Secretverify do not match" Foreground="Red" Visibility="{Binding SecretsDoNotMatch, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
-                    <Button Grid.Row="4" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/LoginButton" Command="{Binding LoginCommand}" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource StorjDefaultBrush}" Foreground="White" CornerRadius="5"/>
+                    <Button Grid.Row="4" Command="{Binding LoginCommand}" Content="{Binding Texts.LoginButton_Content}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource StorjDefaultBrush}" Foreground="White" CornerRadius="5"/>
                 </Grid>
             </PivotItem>
         </Pivot>
         <TextBlock Grid.Row="2" HorizontalAlignment="Center" Padding="0,20,0,0">
-                <Span xml:space="preserve"><Run x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/HaveNoAccount" Text="Have no account yet? "/><Hyperlink NavigateUri="https://www.storj.io/signup" Foreground="{StaticResource StorjDefaultBrush}"><Run x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/RegisterForFree" Text="Register for free"/></Hyperlink></Span>
+                <Span xml:space="preserve"><Run Text="{Binding Texts.HaveNoAccount_Text}"/><Hyperlink NavigateUri="https://www.storj.io/signup" Foreground="{StaticResource StorjDefaultBrush}"><Run Text="{Binding Texts.RegisterForFree_Text}"/></Hyperlink></Span>
         </TextBlock>
     </Grid>
 </Page>

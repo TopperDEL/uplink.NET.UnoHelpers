@@ -13,6 +13,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
 {
     [Inject(typeof(IEventAggregator))]
     [Inject(typeof(IUploadQueueService))]
+    [Inject(typeof(LocalizedUnoHelpersTextViewModel))]
     [ViewModel]
     public partial class CurrentUploadsViewModel
     {
@@ -20,9 +21,11 @@ namespace uplink.NET.UnoHelpers.ViewModels
         [Property] private bool _hasCurrentUpload;
         [Property] private bool _hasFailedUploads;
         [Property] private int _currentUploadCount;
+        [Property] private LocalizedUnoHelpersTextViewModel _texts;
 
         partial void OnInitialize()
         {
+            Texts = LocalizedUnoHelpersTextViewModel;
             UploadQueueEntries = new ObservableCollection<UploadQueueEntryViewModel>();
             UploadQueueService.UploadQueueChangedEvent += UploadQueueService_UploadQueueChangedEvent;
             RefreshAsync();

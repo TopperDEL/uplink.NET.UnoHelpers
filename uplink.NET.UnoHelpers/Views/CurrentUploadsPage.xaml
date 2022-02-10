@@ -13,9 +13,9 @@
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/Upload" Text="Uploads" FontFamily="Inter" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="34" FontWeight="ExtraBold" Foreground="Black" 
+        <TextBlock Grid.Row="0" Text="{Binding Texts.Upload_Text, Mode=OneWay}" FontFamily="Inter" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="34" FontWeight="ExtraBold" Foreground="Black" 
                    Margin="25,20"/>
-        <TextBlock Grid.Row="1" x:Uid="ms-resource:///uplink.NET.UnoHelpers/UnoHelpers/NoUploadInProgress" Text="No pending transfer" Margin="5" HorizontalTextAlignment="Center" Visibility="{Binding HasCurrentUpload, Converter={StaticResource FalseIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
+        <TextBlock Grid.Row="1" Text="{Binding Texts.NoUploadInProgress_Text}" Margin="5" HorizontalTextAlignment="Center" Visibility="{Binding HasCurrentUpload, Converter={StaticResource FalseIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
         <ListView Grid.Row="1" ItemsSource="{Binding UploadQueueEntries, Mode=OneWay}" Visibility="{Binding HasCurrentUpload, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
