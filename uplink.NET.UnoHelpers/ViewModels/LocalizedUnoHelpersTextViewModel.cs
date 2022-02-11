@@ -24,20 +24,20 @@ namespace uplink.NET.UnoHelpers.ViewModels
 
         static LocalizedUnoHelpersTextViewModel()
         {
-            AccessGrant_Header = GetText("UH_AccessGrant.Header", "Access grant");
-            ApiKey_Header = GetText("UH_ApiKey.Header", "API key");
-            BucketName_Header = GetText("UH_BucketName.Header", "Bucket name");
-            DeleteAttachment_Text = GetText("UH_DeleteAttachment.Text", "Delete");
-            HaveNoAccount_Text = GetText("UH_HaveNoAccount.Text", "Have no account yet? ");
-            LoginButton_Content = GetText("UH_LoginButton.Content", "Login");
-            LoginVia_Title = GetText("UH_LoginVia.Title", "Login via");
-            NoUploadInProgress_Text = GetText("UH_NoUploadInProgress.Text", "No pending transfer");
-            RegisterForFree_Text = GetText("UH_RegisterForFree.Text", "Register for free");
-            SatelliteAddress_Header = GetText("UH_SatelliteAddress.Header", "Satellite address");
-            Secret_Header = GetText("UH_Secret.Header", "Secret");
-            SecretVerify_Header = GetText("UH_SecretVerify.Header", "Secret verify");
-            SetAttachmentAsCover_Text = GetText("UH_SetAttachmentAsCover.Text", "Set as cover");
-            Upload_Text = GetText("UH_Upload.Text", "Uploads");
+            AccessGrant_Header = GetText("UH_AccessGrant-Header", "Access grant");
+            ApiKey_Header = GetText("UH_ApiKey-Header", "API key");
+            BucketName_Header = GetText("UH_BucketName-Header", "Bucket name");
+            DeleteAttachment_Text = GetText("UH_DeleteAttachment-Text", "Delete");
+            HaveNoAccount_Text = GetText("UH_HaveNoAccount-Text", "Have no account yet? ");
+            LoginButton_Content = GetText("UH_LoginButton-Content", "Login");
+            LoginVia_Title = GetText("UH_LoginVia-Title", "Login via");
+            NoUploadInProgress_Text = GetText("UH_NoUploadInProgress-Text", "No pending transfer");
+            RegisterForFree_Text = GetText("UH_RegisterForFree-Text", "Register for free");
+            SatelliteAddress_Header = GetText("UH_SatelliteAddress-Header", "Satellite address");
+            Secret_Header = GetText("UH_Secret-Header", "Secret");
+            SecretVerify_Header = GetText("UH_SecretVerify-Header", "Secret verify");
+            SetAttachmentAsCover_Text = GetText("UH_SetAttachmentAsCover-Text", "Set as cover");
+            Upload_Text = GetText("UH_Upload-Text", "Uploads");
         }
 
         private static string GetText(string key, string fallback)
