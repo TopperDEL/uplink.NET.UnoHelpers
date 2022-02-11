@@ -5,6 +5,7 @@
     xmlns:local="using:uplink.NET.UnoHelpers.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:helper="using:uplink.NET.UnoHelpers.Helper"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -17,6 +18,11 @@
                    Margin="25,20"/>
         <TextBlock Grid.Row="1" Text="{Binding Texts.NoUploadInProgress_Text}" Margin="5" HorizontalTextAlignment="Center" Visibility="{Binding HasCurrentUpload, Converter={StaticResource FalseIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}"/>
         <ListView Grid.Row="1" ItemsSource="{Binding UploadQueueEntries, Mode=OneWay}" Visibility="{Binding HasCurrentUpload, Converter={StaticResource TrueIsVisibleConverter}, Mode=TwoWay, FallbackValue=Collapsed, TargetNullValue=Collapsed}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <helper:BottomPaddedStackPanel />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
