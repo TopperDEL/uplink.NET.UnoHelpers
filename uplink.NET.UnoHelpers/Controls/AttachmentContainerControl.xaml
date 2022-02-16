@@ -15,23 +15,35 @@
                   HorizontalContentAlignment="Center" HorizontalAlignment="Center">
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <StackPanel>
                         <Image Source="{Binding AttachmentThumbnail, Mode=OneWay}" Stretch="UniformToFill"  VerticalAlignment="Center" MaxWidth="200" MaxHeight="200" MinWidth="100" MinHeight="75" HorizontalAlignment="Center"/>
 
                         <Button Background="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="2">
                             <Button.Flyout>
                                 <MenuFlyout>
                                     <MenuFlyoutItem Text="{Binding Texts.DeleteAttachment_Text}" Command="{Binding DeleteAttachmentAsyncCommand}"
-                                                    Visibility="{Binding CanDeleteAttachment, Converter={StaticResource TrueIsVisibleConverter}, ElementName=AttachmentContainer}"/>
+                                                    Visibility="{Binding CanDeleteAttachment, Converter={StaticResource TrueIsVisibleConverter}, ElementName=AttachmentContainer, Mode=TwoWay, FallbackValue=Visible}"/>
                                     <MenuFlyoutItem Text="{Binding Texts.SetAttachmentAsCover_Text}" Command="{Binding SetAttachmentAsCoverAsyncCommand}"
-                                                    Visibility="{Binding CanSetAttachmentAsCover, Converter={StaticResource TrueIsVisibleConverter}, ElementName=AttachmentContainer}"/>
+                                                    Visibility="{Binding CanSetAttachmentAsCover, Converter={StaticResource TrueIsVisibleConverter}, ElementName=AttachmentContainer, Mode=TwoWay, FallbackValue=Visible}"/>
                                 </MenuFlyout>
                             </Button.Flyout>
                             <Image Source="/Assets/HorizontalDots.png" Width="17" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Button>
-                    </Grid>
+                    </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
+
+        <Button Background="Red" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="2">
+            <Button.Flyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem Text="{Binding Texts.DeleteAttachment_Text}" Command="{Binding DeleteAttachmentAsyncCommand}"
+                                                    Visibility="{Binding CanDeleteAttachment, Converter={StaticResource TrueIsVisibleConverter}, ElementName=AttachmentContainer}"/>
+                    <MenuFlyoutItem Text="{Binding Texts.SetAttachmentAsCover_Text}" Command="{Binding SetAttachmentAsCoverAsyncCommand}"
+                                                    Visibility="{Binding CanSetAttachmentAsCover, Converter={StaticResource TrueIsVisibleConverter}, ElementName=AttachmentContainer}"/>
+                </MenuFlyout>
+            </Button.Flyout>
+            <Image Source="/Assets/HorizontalDots.png" Width="17" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Button>
     </Grid>
 </UserControl>
