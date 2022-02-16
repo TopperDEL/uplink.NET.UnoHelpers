@@ -13,6 +13,7 @@ namespace uplink.NET.UnoHelpers.TestApp.MockServices
         public async Task<List<Attachment>> GetAttachmentsAsync()
         {
             var guid = Guid.NewGuid().ToString();
+#if WINDOWS_UWP
             var myFilter = new Windows.Web.Http.Filters.HttpBaseProtocolFilter();
             myFilter.AllowUI = false;
             Windows.Web.Http.HttpClient client = new Windows.Web.Http.HttpClient(myFilter);
@@ -24,6 +25,12 @@ namespace uplink.NET.UnoHelpers.TestApp.MockServices
             attachment.AttachmentData = mstream;
             attachment.MimeType = "image/jpeg";
             attachment.Filename = guid + ".jpg";
+#else
+            var attachment = new Attachment();
+            attachment.MimeType = "image/jpeg";
+            attachment.Filename = "https://picsum.photos/seed/" + guid + "/4000/3000";
+            
+#endif
 
             return new List<Attachment>() { attachment };
         }

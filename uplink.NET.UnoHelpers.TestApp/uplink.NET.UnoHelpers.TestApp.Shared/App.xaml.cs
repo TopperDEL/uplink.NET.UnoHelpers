@@ -44,12 +44,18 @@ namespace uplink.NET.UnoHelpers.TestApp
         public App()
         {
             InitializeLogging();
+            this.UnhandledException += App_UnhandledException;
 
             this.InitializeComponent();
+            
 
 #if HAS_UNO || NETFX_CORE
             this.Suspending += OnSuspending;
 #endif
+        }
+
+        private void App_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
+        {
         }
 
         /// <summary>
