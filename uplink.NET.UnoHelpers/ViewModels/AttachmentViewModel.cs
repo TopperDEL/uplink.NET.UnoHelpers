@@ -15,6 +15,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
     [ViewModel(ModelType = typeof(Attachment))]
     [Inject(typeof(IThumbnailGeneratorService))]
     [Inject(typeof(IEventAggregator))]
+    [Inject(typeof(LocalizedUnoHelpersTextViewModel))]
     [ViewModelGenerateFactory]
     public partial class AttachmentViewModel
     {
@@ -28,11 +29,13 @@ namespace uplink.NET.UnoHelpers.ViewModels
         [Property] bool _isCover;
         [Property] BitmapImage _attachmentThumbnail;
         [Property] bool _isLoaded;
+        [Property] private LocalizedUnoHelpersTextViewModel _texts;
 
         private Stream _thumbnail;
 
         partial void OnInitialize()
         {
+            Texts = LocalizedUnoHelpersTextViewModel;
             AttachmentThumbnail = _placeholder;
         }
 

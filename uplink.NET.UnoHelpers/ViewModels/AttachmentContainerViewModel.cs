@@ -14,12 +14,15 @@ namespace uplink.NET.UnoHelpers.ViewModels
     [Inject(typeof(IAttachmentSelectService))]
     [Inject(typeof(IAttachmentViewModelFactory))]
     [Inject(typeof(IEventAggregator))]
+    [Inject(typeof(LocalizedUnoHelpersTextViewModel))]
     public partial class AttachmentContainerViewModel : IEventSubscriber<AttachmentDeletedMessage>
     {
         [Property] ObservableCollection<AttachmentViewModel> _content = new ObservableCollection<AttachmentViewModel>();
+        [Property] private LocalizedUnoHelpersTextViewModel _texts;
 
         partial void OnInitialize()
         {
+            Texts = LocalizedUnoHelpersTextViewModel;
             Content.CollectionChanged += Content_CollectionChanged;
         }
 

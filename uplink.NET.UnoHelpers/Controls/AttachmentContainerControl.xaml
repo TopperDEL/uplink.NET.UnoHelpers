@@ -15,10 +15,10 @@
                   HorizontalContentAlignment="Center" HorizontalAlignment="Center">
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
+                    <Grid>
                         <Image Source="{Binding AttachmentThumbnail, Mode=OneWay}" Stretch="UniformToFill"  VerticalAlignment="Center" MaxWidth="200" MaxHeight="200" MinWidth="100" MinHeight="75" HorizontalAlignment="Center"/>
 
-                        <Button Background="White" HorizontalAlignment="Center">
+                        <Button Background="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="2">
                             <Button.Flyout>
                                 <MenuFlyout>
                                     <MenuFlyoutItem Text="{Binding Texts.DeleteAttachment_Text}" Command="{Binding DeleteAttachmentAsyncCommand}"
@@ -29,7 +29,7 @@
                             </Button.Flyout>
                             <Image Source="/Assets/HorizontalDots.png" Width="17" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Button>
-                    </StackPanel>
+                    </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
