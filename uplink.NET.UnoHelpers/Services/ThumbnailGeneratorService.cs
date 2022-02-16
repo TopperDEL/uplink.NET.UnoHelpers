@@ -30,7 +30,7 @@ namespace uplink.NET.UnoHelpers.Services
                                     SKImageInfo resizeInfo = new SKImageInfo(targetWidth, targetHeight);//, info.ColorType, info.AlphaType, info.ColorSpace);
 
                                     // Test whether there is more room in width or height
-                                    if (Math.Abs(sourceBitmap.Width - targetWidth) > Math.Abs(sourceBitmap.Height - targetHeight))
+                                    if (Math.Abs(sourceBitmap.Width - targetWidth) <= Math.Abs(sourceBitmap.Height - targetHeight))
                                     {
                                         // More room in width, so leave image width set to canvas width
                                         // and increase/decrease height by same ratio
