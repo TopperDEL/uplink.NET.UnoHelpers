@@ -21,6 +21,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
         public static string SecretVerify_Header { get; private set; }
         public static string SetAttachmentAsCover_Text { get; private set; }
         public static string Upload_Text { get; private set; }
+        public static string BucketCreateInfo_Text { get; set; }
 
         static LocalizedUnoHelpersTextViewModel()
         {
@@ -38,6 +39,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
             SecretVerify_Header = GetText("UH_SecretVerify-Header", "Secret verify");
             SetAttachmentAsCover_Text = GetText("UH_SetAttachmentAsCover-Text", "Set as cover");
             Upload_Text = GetText("UH_Upload-Text", "Uploads");
+            BucketCreateInfo_Text = GetText("UH_BucketCreateInfo-Text", "The bucket will be created if it does not yet exist.");
         }
 
         private static string GetText(string key, string fallback)

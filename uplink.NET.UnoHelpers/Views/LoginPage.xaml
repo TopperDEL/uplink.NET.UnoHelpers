@@ -21,13 +21,16 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60"/>
                         <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
                     <TextBox Grid.Row="0" Header="{Binding Texts.AccessGrant_Header}" Text="{Binding AccessGrant, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
                     <TextBox Grid.Row="1" Header="{Binding Texts.BucketName_Header}" Text="{Binding BucketName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"
                              TextChanging="TextBox_TextChanging" KeyDown="TextBox_KeyDown_CheckEnter"/>
-                    <Button Grid.Row="2" Command="{Binding LoginCommand}" Content="{Binding Texts.LoginButton_Content}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource StorjDefaultBrush}" Foreground="White" CornerRadius="5"/>
+                    <TextBlock Grid.Row="2" Text="{Binding Texts.BucketCreateInfo_Text}" FontFamily="Inter"
+                               HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"/>
+                    <Button Grid.Row="3" Command="{Binding LoginCommand}" Content="{Binding Texts.LoginButton_Content}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource StorjDefaultBrush}" Foreground="White" CornerRadius="5"/>
                 </Grid>
             </PivotItem>
 
@@ -44,7 +47,7 @@
                     <TextBox Grid.Row="0" Text="{Binding SatelliteAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="{Binding Texts.SatelliteAddress_Header}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
                     <TextBox Grid.Row="1" Text="{Binding ApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="{Binding Texts.ApiKey_Header}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
                     <PasswordBox Grid.Row="2" Password="{Binding Secret, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="{Binding Texts.Secret_Header}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
-                    <PasswordBox Grid.Row="3" Password="{Binding SecretVerify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="{Binding Texts.SecretsVerify_Header}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"
+                    <PasswordBox Grid.Row="3" Password="{Binding SecretVerify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="{Binding Texts.SecretVerify_Header}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"
                                  KeyDown="TextBox_KeyDown_CheckEnter"/>
                     <!--<TextBlock x:Uid="SecretAndVerifyNotMatch" Text="Secret and Secretverify do not match" Foreground="Red" Visibility="{Binding SecretsDoNotMatch, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
                     <Button Grid.Row="4" Command="{Binding LoginCommand}" Content="{Binding Texts.LoginButton_Content}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource StorjDefaultBrush}" Foreground="White" CornerRadius="5"/>

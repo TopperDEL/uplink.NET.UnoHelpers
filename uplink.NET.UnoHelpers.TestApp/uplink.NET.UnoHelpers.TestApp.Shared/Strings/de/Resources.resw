@@ -123,6 +123,9 @@
   <data name="UH_ApiKey-Header" xml:space="preserve">
     <value>API Schlüssel</value>
   </data>
+  <data name="UH_BucketCreateInfo-Text" xml:space="preserve">
+    <value>Der Basispfad (bucket) wird angelegt sofern er noch nicht existiert.</value>
+  </data>
   <data name="UH_BucketName-Header" xml:space="preserve">
     <value>Basispfad (bucket)</value>
   </data>
