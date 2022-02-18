@@ -12,7 +12,7 @@
 
     <Grid>
         <GridView ItemsSource="{Binding Content, Mode=TwoWay}"
-                  HorizontalContentAlignment="Center" HorizontalAlignment="Center">
+                  HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
