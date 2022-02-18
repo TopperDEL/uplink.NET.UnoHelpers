@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31402.337
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "uplink.NET.UnoHelpers", "uplink.NET.UnoHelpers\uplink.NET.UnoHelpers.csproj", "{7BE48FEC-C920-442E-AED1-5C41048B0A39}"
 EndProject
@@ -195,7 +195,6 @@ Global
 		{F4936235-FE19-412F-A41F-3D229E5079D4}.Debug|ARM64.Deploy.0 = Debug|Any CPU
 		{F4936235-FE19-412F-A41F-3D229E5079D4}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{F4936235-FE19-412F-A41F-3D229E5079D4}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{F4936235-FE19-412F-A41F-3D229E5079D4}.Debug|iPhone.Deploy.0 = Debug|Any CPU
 		{F4936235-FE19-412F-A41F-3D229E5079D4}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
 		{F4936235-FE19-412F-A41F-3D229E5079D4}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{F4936235-FE19-412F-A41F-3D229E5079D4}.Debug|iPhoneSimulator.Deploy.0 = Debug|Any CPU
@@ -266,6 +265,7 @@ Global
 		{F1B279B5-08F3-43BD-93DF-812A8EC87B50}.Debug|ARM64.ActiveCfg = Debug|iPhoneSimulator
 		{F1B279B5-08F3-43BD-93DF-812A8EC87B50}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{F1B279B5-08F3-43BD-93DF-812A8EC87B50}.Debug|iPhone.Build.0 = Debug|iPhone
+		{F1B279B5-08F3-43BD-93DF-812A8EC87B50}.Debug|iPhone.Deploy.0 = Debug|iPhone
 		{F1B279B5-08F3-43BD-93DF-812A8EC87B50}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
 		{F1B279B5-08F3-43BD-93DF-812A8EC87B50}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
 		{F1B279B5-08F3-43BD-93DF-812A8EC87B50}.Debug|x64.ActiveCfg = Debug|iPhoneSimulator
