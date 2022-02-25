@@ -22,6 +22,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
         public static string SetAttachmentAsCover_Text { get; private set; }
         public static string Upload_Text { get; private set; }
         public static string BucketCreateInfo_Text { get; set; }
+        public static string LoginFailed { get; set; }
 
         static LocalizedUnoHelpersTextViewModel()
         {
@@ -40,6 +41,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
             SetAttachmentAsCover_Text = GetText("UH_SetAttachmentAsCover-Text", "Set as cover");
             Upload_Text = GetText("UH_Upload-Text", "Uploads");
             BucketCreateInfo_Text = GetText("UH_BucketCreateInfo-Text", "The bucket will be created if it does not yet exist.");
+            LoginFailed = GetText("UH_LoginFailed", "Login failed - please verify your credentials");
         }
 
         private static string GetText(string key, string fallback)
