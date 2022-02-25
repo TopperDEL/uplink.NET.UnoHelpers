@@ -48,16 +48,29 @@ namespace uplink.NET.UnoHelpers.Services
             //Verify if access is valid
             if (!string.IsNullOrEmpty(appConfig.AccessGrant) && !string.IsNullOrEmpty(appConfig.BucketName))
             {
-                //ToDo: Verify bucket name
-                //ToDo: check Access Grant
-
+                try
+                {
+                    var access = new uplink.NET.Models.Access(appConfig.AccessGrant);
+                }
+                catch
+                {
+                    return false;
+                }
+                
                 AddIfNotEmpty(ACCESS_GRANT, appConfig.AccessGrant);
                 AddIfNotEmpty(BUCKET_NAME, appConfig.BucketName);
             }
             else if (!string.IsNullOrEmpty(appConfig.SatelliteAddress) && !string.IsNullOrEmpty(appConfig.ApiKey) && !string.IsNullOrEmpty(appConfig.Secret))
             {
-                //ToDo: Check Satellite address
-                //ToDo: Verify API-Key
+                try
+                {
+                    var access = new uplink.NET.Models.Access(appConfig.SatelliteAddress, appConfig.ApiKey, appConfig.Secret);
+                }
+                catch
+                {
+                    return false;
+                }
+
                 AddIfNotEmpty(SATELLITE_ADDRESS, appConfig.SatelliteAddress);
                 AddIfNotEmpty(API_KEY, appConfig.ApiKey);
                 AddIfNotEmpty(SECRET, appConfig.Secret);
