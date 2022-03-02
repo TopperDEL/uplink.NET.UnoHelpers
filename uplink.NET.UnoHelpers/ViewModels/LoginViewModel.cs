@@ -43,7 +43,7 @@ namespace uplink.NET.UnoHelpers.ViewModels
             }
             else
             {
-                EventAggregator.Publish(new ErrorOccuredMessage(Texts.LoginFailed));
+                EventAggregator.Publish(new ErrorOccuredMessage(LocalizedUnoHelpersTextViewModel.LoginFailed));
             }
         }
     }
