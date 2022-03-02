@@ -55,6 +55,22 @@ namespace uplink.NET.UnoHelpers.ViewModels
             IsLoaded = true;
         }
 
+        public async Task SetAttachmentWithThumbnailAsync(Attachment attachment, Stream thumbnailStream)
+        {
+            Model = attachment;
+            _thumbnail = thumbnailStream;
+
+            if (_thumbnail != null)
+            {
+                var bitmapImage = new BitmapImage();
+                await bitmapImage.SetSourceAsync(_thumbnail.AsRandomAccessStream());
+
+                AttachmentThumbnail = bitmapImage;
+            }
+
+            IsLoaded = true;
+        }
+
         public void SetAttachmentFromURL(Attachment attachment, Uri uri)
         {
             Model = attachment;
