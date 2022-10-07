@@ -80,12 +80,12 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MvvmGen">
-      <Version>1.1.1</Version>
+      <Version>1.1.5</Version>
     </PackageReference>
-    <PackageReference Include="Uno.UI" Version="4.0.13" />
-    <PackageReference Include="Uno.UI.RemoteControl" Version="4.0.13" Condition="'$(Configuration)'=='Debug'" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
+    <PackageReference Include="Uno.UI" Version="4.5.12" />
+    <PackageReference Include="Uno.UI.RemoteControl" Version="4.5.12" Condition="'$(Configuration)'=='Debug'" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
   </ItemGroup>
   <Import Project="..\uplink.NET.UnoHelpers.TestApp.Shared\uplink.NET.UnoHelpers.TestApp.Shared.projitems" Label="Shared" />
   <ItemGroup>
