@@ -10,9 +10,9 @@
 
     <Grid Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" MaxWidth="500">
         <Grid.RowDefinitions>
-            <RowDefinition MaxHeight="400"/>
-            <RowDefinition Height="400"/>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Image Source="/Assets/StorjLogo.png" Grid.Row="0" MaxWidth="100" MaxHeight="100"/>
         <Pivot Grid.Row="1" Title="{Binding Texts.LoginVia_Title}" Foreground="{StaticResource StorjBlue}" MaxWidth="400">
@@ -35,8 +35,10 @@
             </PivotItem>
 
             <PivotItem Header="{Binding Texts.ApiKey_Header}">
-                <Grid MaxWidth="400">
+                <Grid MaxWidth="400" MinHeight="400">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
                         <RowDefinition Height="60"/>
                         <RowDefinition Height="60"/>
                         <RowDefinition Height="60"/>
@@ -49,8 +51,12 @@
                     <PasswordBox Grid.Row="2" Password="{Binding Secret, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="{Binding Texts.Secret_Header}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"/>
                     <PasswordBox Grid.Row="3" Password="{Binding SecretVerify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="{Binding Texts.SecretVerify_Header}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"
                                  KeyDown="TextBox_KeyDown_CheckEnter"/>
+                    <TextBox Grid.Row="4" Header="{Binding Texts.BucketName_Header}" Text="{Binding BucketName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MaxWidth="400" BorderBrush="{StaticResource StorjDefaultBrush}"
+                             TextChanging="TextBox_TextChanging" KeyDown="TextBox_KeyDown_CheckEnter"/>
+                    <TextBlock Grid.Row="5" Text="{Binding Texts.BucketCreateInfo_Text}" FontFamily="Inter"
+                               HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"/>
                     <!--<TextBlock x:Uid="SecretAndVerifyNotMatch" Text="Secret and Secretverify do not match" Foreground="Red" Visibility="{Binding SecretsDoNotMatch, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
-                    <Button Grid.Row="4" Command="{Binding LoginCommand}" Content="{Binding Texts.LoginButton_Content}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource StorjDefaultBrush}" Foreground="White" CornerRadius="5"/>
+                    <Button Grid.Row="6" Command="{Binding LoginCommand}" Content="{Binding Texts.LoginButton_Content}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Background="{StaticResource StorjDefaultBrush}" Foreground="White" CornerRadius="5"/>
                 </Grid>
             </PivotItem>
         </Pivot>
