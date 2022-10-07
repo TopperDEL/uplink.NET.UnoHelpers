@@ -112,5 +112,15 @@ namespace uplink.NET.UnoHelpers.TestApp.MockServices
         public async Task RetryAsync(string key)
         {
         }
+
+        public Task AddObjectToUploadQueueAsync(string bucketName, string key, string accessGrant, byte[] objectData, string identifier, CustomMetadata customMetadata)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task AddObjectToUploadQueueAsync(string bucketName, string key, string accessGrant, Stream stream, string identifier, CustomMetadata customMetadata)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
