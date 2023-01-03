@@ -28,7 +28,17 @@ namespace uplink.NET.UnoHelpers.Views
         public LoginPage()
         {
             this.InitializeComponent();
-            DataContext = _vm = (LoginViewModel)Services.Initializer.GetServiceProvider().GetService(typeof(LoginViewModel));
+            this.DataContextChanged += LoginPage_DataContextChanged;
+            try
+            {
+                DataContext = _vm = (LoginViewModel)Services.Initializer.GetServiceProvider().GetService(typeof(LoginViewModel));
+            }
+            catch { }
+        }
+
+        private void LoginPage_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
+        {
+            _vm = DataContext as LoginViewModel;
         }
 
         private void TextBox_TextChanging(object sender, TextBoxTextChangingEventArgs e)
